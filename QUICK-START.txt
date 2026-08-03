@@ -1,0 +1,75 @@
+====================================
+SOCA WEBSITE - QUICK START GUIDE
+====================================
+
+📁 FOLDER STRUCTURE CREATED:
+✓ assets/               (Place all images here)
+✓ assets/videos/        (Place your video here)
+✓ assets/slides/        (Place 120 presentation slides here)
+
+📝 FILES READY:
+✓ index.html           (Website structure)
+✓ styles.css           (All styling)
+✓ script.js            (Animations)
+✓ vercel.json          (Deployment config)
+✓ .gitignore           (Git configuration)
+✓ README.md            (Full documentation)
+✓ DEPLOYMENT-GUIDE.md  (Step-by-step deploy instructions)
+
+🎬 NEXT STEPS:
+
+1. ADD YOUR VIDEO:
+   - Copy your Facebook video
+   - Rename it to: soca-2026.mp4
+   - Place in: assets\videos\soca-2026.mp4
+   - ⚠️ Must be under 100MB! Compress if needed.
+
+2. ADD YOUR IMAGES:
+   Copy these files to the 'assets' folder:
+   - bago-city-logo.png
+   - mayor-portrait.jpg
+   - project-1.jpg, project-2.jpg, ... project-6.jpg
+   - gallery-1.jpg, gallery-2.jpg, ... gallery-9.jpg
+
+3. ADD PRESENTATION SLIDES:
+   Export 120 slides from PowerPoint as images
+   Rename them: slide-001.jpg, slide-002.jpg, ... slide-120.jpg
+   Place in: assets\slides\
+   📖 See SLIDES-SETUP-GUIDE.md for detailed instructions
+
+4. TEST LOCALLY:
+   - Open index.html in Chrome browser
+   - Check if everything displays correctly
+
+5. DEPLOY TO VERCEL:
+   - Read DEPLOYMENT-GUIDE.md for step-by-step instructions
+   - You'll need: GitHub account + Vercel account (both free)
+
+📧 NEED TO UPDATE CONTENT?
+Edit these files:
+- index.html (for text, speech, project details)
+- styles.css (for colors, fonts)
+- Contact info is in the footer of index.html
+
+🌐 WEBSITE FEATURES:
+✓ Modern glassmorphism design
+✓ Smooth scroll animations
+✓ Animated statistics counter
+✓ Local video player (no YouTube needed!)
+✓ Interactive slide viewer with 120 slides
+✓ Auto-play slideshow with speed control
+✓ Grid view for quick slide navigation
+✓ Keyboard shortcuts (arrows, space bar)
+✓ Photo gallery
+✓ Mobile responsive
+✓ Professional civic theme
+
+💡 PRO TIP:
+If your video is large, use this free tool to compress:
+https://www.freeconvert.com/video-compressor
+Target: 720p, H.264 format, ~50MB size
+
+====================================
+Everything is set up and ready to go!
+Follow DEPLOYMENT-GUIDE.md to deploy.
+====================================

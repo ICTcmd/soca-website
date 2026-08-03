@@ -1,0 +1,19 @@
+# Large video files - use Git LFS or external hosting
+# assets/videos/*.mp4
+
+# Node modules (if you add any build tools later)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Vercel
+.vercel
