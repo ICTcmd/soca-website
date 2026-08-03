@@ -36,19 +36,29 @@ function updateSlideDisplay() {
     const slideImage = document.getElementById('slideImage');
     const slideNumber = formatSlideNumber(currentSlideIndex);
     
+    // Add fade-out effect
     slideImage.classList.add('loading');
     
-    slideImage.src = `assets/slides/slide-${slideNumber}.jpg`;
-    slideImage.alt = `Slide ${currentSlideIndex}`;
-    
-    slideImage.onload = () => {
-        slideImage.classList.remove('loading');
-    };
-    
-    slideImage.onerror = () => {
-        console.warn(`Slide ${slideNumber} not found`);
-        slideImage.classList.remove('loading');
-    };
+    // Small delay for smooth transition
+    setTimeout(() => {
+        slideImage.src = `assets/slides/slide-${slideNumber}.jpg`;
+        slideImage.alt = `Slide ${currentSlideIndex}`;
+        
+        slideImage.onload = () => {
+            slideImage.classList.remove('loading');
+            slideImage.classList.add('fade-in');
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                slideImage.classList.remove('fade-in');
+            }, 600);
+        };
+        
+        slideImage.onerror = () => {
+            console.warn(`Slide ${slideNumber} not found`);
+            slideImage.classList.remove('loading');
+        };
+    }, 150);
 }
 
 // Update slide counter
