@@ -139,55 +139,60 @@ body {
 .hero-portrait {
     margin-bottom: 40px;
     display: inline-block;
+    position: relative;
 }
 
 .portrait-image {
-    width: 450px;
-    height: 450px;
-    border-radius: 30px;
+    width: 600px;
+    height: 600px;
+    border-radius: 40px;
     object-fit: cover;
-    border: 5px solid var(--gold-accent);
-    box-shadow: 0 30px 80px rgba(255, 107, 53, 0.3);
-    opacity: 0.92;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 6px solid rgba(212, 175, 55, 0.6);
+    box-shadow: 0 40px 120px rgba(255, 107, 53, 0.25);
+    opacity: 0.88;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .portrait-image:hover {
-    transform: scale(1.05);
-    opacity: 1;
-    box-shadow: 0 35px 100px rgba(255, 107, 53, 0.4);
+    transform: scale(1.02);
+    opacity: 0.95;
+    box-shadow: 0 45px 140px rgba(255, 107, 53, 0.35);
 }
 
 .hero-title-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(25px);
-    border: 2px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 50px 70px;
-    max-width: 900px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 35px;
+    padding: 60px 80px;
+    max-width: 950px;
     margin: 0 auto;
-    box-shadow: 0 25px 70px rgba(255, 107, 53, 0.15);
+    box-shadow: 0 30px 90px rgba(255, 107, 53, 0.2);
 }
 
 .mayor-name {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 800;
     color: var(--navy-blue);
     margin-bottom: 15px;
     letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .hero-subtitle {
-    font-size: 24px;
+    font-size: 28px;
     color: var(--vibrant-orange);
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
 }
 
 .hero-tagline {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--text-dark);
-    font-weight: 400;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 /* Stats Section */
@@ -843,20 +848,24 @@ body {
     }
     
     .mayor-name {
-        font-size: 32px;
+        font-size: 36px;
     }
     
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 22px;
+    }
+    
+    .hero-tagline {
+        font-size: 16px;
     }
     
     .hero-title-card {
-        padding: 30px 40px;
+        padding: 40px 50px;
     }
     
     .portrait-image {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
     }
 
     .stat-number {
@@ -897,11 +906,11 @@ body {
     }
     
     .mayor-name {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .hero-subtitle {
-        font-size: 16px;
+        font-size: 18px;
     }
     
     .hero-tagline {
@@ -909,12 +918,12 @@ body {
     }
     
     .hero-title-card {
-        padding: 20px 25px;
+        padding: 30px 35px;
     }
     
     .portrait-image {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
     }
 }
 
