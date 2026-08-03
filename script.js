@@ -456,4 +456,30 @@ document.querySelectorAll('.speech-body p, .speech-body h3, .pull-quote').forEac
 // Initialize on page load
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    setupVideoAutoPlay();
 });
+
+// Auto-play video when scrolled into view
+function setupVideoAutoPlay() {
+    const video = document.getElementById('socaVideo');
+    
+    if (!video) return;
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Play video when it comes into view
+                video.play().catch(err => {
+                    console.log('Auto-play prevented:', err);
+                });
+            } else {
+                // Pause video when it leaves view
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of video is visible
+    });
+    
+    videoObserver.observe(video);
+}
