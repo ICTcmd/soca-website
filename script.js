@@ -24,6 +24,29 @@ function initSlideViewer() {
     
     // Keyboard navigation
     document.addEventListener('keydown', handleKeyboard);
+    
+    // Auto-play when slides come into view
+    setupAutoPlayOnScroll();
+}
+
+// Setup auto-play when slides section becomes visible
+function setupAutoPlayOnScroll() {
+    const slidesContainer = document.querySelector('.slides-container');
+    
+    const autoPlayObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isAutoPlaying) {
+                // Start auto-play when slides come into view
+                toggleAutoPlay();
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of slides are visible
+    });
+    
+    if (slidesContainer) {
+        autoPlayObserver.observe(slidesContainer);
+    }
 }
 
 // Format slide number with leading zeros (e.g., 1 -> 001)

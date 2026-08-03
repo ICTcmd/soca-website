@@ -139,8 +139,8 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
@@ -157,45 +157,45 @@ body {
 }
 
 .hero-eyebrow {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--gold-primary);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-family: 'Inter', sans-serif;
 }
 
 .hero-title {
-    font-size: 72px;
+    font-size: 52px;
     font-weight: 300;
     line-height: 1.1;
     color: var(--white-pure);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-family: Georgia, 'Times New Roman', serif;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
-    font-size: 22px;
+    font-size: 18px;
     font-style: italic;
     color: var(--gray-cool);
-    margin-bottom: 45px;
+    margin-bottom: 35px;
     font-weight: 300;
 }
 
 .hero-actions {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .btn-primary {
     background: var(--gold-primary);
     color: var(--navy-primary);
-    padding: 16px 40px;
+    padding: 14px 32px;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -215,10 +215,10 @@ body {
 .btn-secondary {
     background: transparent;
     color: var(--white-pure);
-    padding: 16px 40px;
+    padding: 14px 32px;
     border: 2px solid var(--gold-primary);
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -243,7 +243,7 @@ body {
 
 .portrait-image {
     width: 100%;
-    max-width: 550px;
+    max-width: 700px;
     height: auto;
     border-radius: 8px;
     object-fit: contain;
