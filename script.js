@@ -4,11 +4,11 @@
 
 // Carousel configuration
 const carouselImages = [
-    'assets/mayor-portrait.jpg',  // Image 1 - Main portrait
-    'assets/mayor-portrait.jpg',  // Image 2 - Placeholder (replace with your image)
-    'assets/mayor-portrait.jpg',  // Image 3 - Placeholder (replace with your image)
-    'assets/mayor-portrait.jpg',  // Image 4 - Placeholder (replace with your image)
-    'assets/mayor-portrait.jpg'   // Image 5 - Placeholder (replace with your image)
+    'assets/mayor-portrait.jpg',  // Image 1 - Main portrait at podium
+    'assets/carousel-2.jpg',      // Image 2 - Your second image
+    'assets/carousel-3.jpg',      // Image 3 - Your third image
+    'assets/carousel-4.jpg',      // Image 4 - Your fourth image
+    'assets/carousel-5.jpg'       // Image 5 - Your fifth image
 ];
 
 let currentCarouselIndex = 0;
