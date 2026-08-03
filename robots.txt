@@ -1,0 +1,13 @@
+# robots.txt for SOCA 2026 Website
+# City Government of Bago
+
+User-agent: *
+Allow: /
+
+# Disallow access to specific files
+Disallow: /SECURITY-AUDIT-REPORT.md
+Disallow: /CAROUSEL-IMAGE-GUIDE.md
+Disallow: /*.md$
+
+# Sitemap location (create this later if needed)
+# Sitemap: https://soca-website.vercel.app/sitemap.xml

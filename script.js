@@ -598,7 +598,6 @@ const galleryItems = document.querySelectorAll('.gallery-item');
 galleryItems.forEach(item => {
     item.addEventListener('click', function() {
         // Add lightbox functionality here if needed
-        console.log('Gallery item clicked');
     });
 });
 
@@ -638,7 +637,7 @@ function setupVideoAutoPlay() {
             if (entry.isIntersecting) {
                 // Play video when it comes into view
                 video.play().catch(err => {
-                    console.log('Auto-play prevented:', err);
+                    // Auto-play prevented by browser
                 });
             } else {
                 // Pause video when it leaves view
