@@ -66,37 +66,64 @@
             <div class="hero-content">
                 <div class="hero-portrait">
                     <div class="carousel-container">
-                        <!-- Navigation Arrows -->
-                        <button class="carousel-nav prev" id="carouselPrev" aria-label="Previous image">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- Carousel Track -->
-                        <div class="carousel-track">
-                            <!-- Left Preview -->
-                            <div class="carousel-preview left">
-                                <img src="assets/mayor-portrait.jpg" alt="SOCA Event" class="preview-image">
-                            </div>
-
-                            <!-- Center Main Image -->
-                            <div class="carousel-main">
-                                <img id="carouselMainImage" src="assets/mayor-portrait.jpg" alt="Mayor Marina Mayette Javellana Yao" class="portrait-image">
-                            </div>
-
-                            <!-- Right Preview -->
-                            <div class="carousel-preview right">
-                                <img src="assets/mayor-portrait.jpg" alt="SOCA Event" class="preview-image">
+                        <!-- Left Side Panel - Vertical Portrait -->
+                        <div class="carousel-side-panel left">
+                            <div class="ornate-frame">
+                                <div class="frame-curtain"></div>
+                                <img src="assets/carousel-2.jpg" alt="SOCA Event" class="side-panel-image">
+                                <div class="frame-label">Asenso Bago</div>
                             </div>
                         </div>
 
-                        <!-- Navigation Arrows -->
-                        <button class="carousel-nav next" id="carouselNext" aria-label="Next image">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
+                        <!-- Center Main Frame with Navigation -->
+                        <div class="carousel-center">
+                            <!-- Navigation Arrow Left -->
+                            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous image">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- Main Ornate Frame -->
+                            <div class="main-ornate-frame">
+                                <div class="main-frame-top"></div>
+                                <div class="main-frame-border">
+                                    <img id="carouselMainImage" src="assets/mayor-portrait.jpg" alt="Mayor Marina Mayette Javellana Yao" class="main-carousel-image">
+                                </div>
+                            </div>
+
+                            <!-- Navigation Arrow Right -->
+                            <button class="carousel-arrow right" id="carouselNext" aria-label="Next image">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Right Side Panel - Stacked Images -->
+                        <div class="carousel-side-panel right">
+                            <div class="stacked-frames">
+                                <div class="small-ornate-frame">
+                                    <div class="small-frame-curtain"></div>
+                                    <img src="assets/carousel-3.jpg" alt="SOCA Event" class="stacked-image">
+                                </div>
+                                <div class="small-ornate-frame">
+                                    <div class="small-frame-curtain"></div>
+                                    <img src="assets/carousel-4.jpg" alt="SOCA Event" class="stacked-image">
+                                </div>
+                                <div class="small-ornate-frame">
+                                    <div class="small-frame-curtain"></div>
+                                    <img src="assets/carousel-5.jpg" alt="SOCA Event" class="stacked-image">
+                                </div>
+                            </div>
+                            <div class="frame-label">Asenso Bago</div>
+                        </div>
+
+                        <!-- Decorative Corner Elements -->
+                        <div class="corner-decoration top-left"></div>
+                        <div class="corner-decoration top-right"></div>
+                        <div class="corner-decoration bottom-left"></div>
+                        <div class="corner-decoration bottom-right"></div>
 
                         <!-- Carousel Indicators -->
                         <div class="carousel-indicators" id="carouselIndicators">

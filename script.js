@@ -60,14 +60,8 @@ function generateCarouselIndicators() {
 // Update carousel display
 function updateCarousel() {
     const mainImage = document.getElementById('carouselMainImage');
-    const leftPreview = document.querySelector('.carousel-preview.left img');
-    const rightPreview = document.querySelector('.carousel-preview.right img');
     
     if (!mainImage) return;
-    
-    // Calculate indices
-    const prevIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
-    const nextIndex = (currentCarouselIndex + 1) % carouselImages.length;
     
     // Add fade transition
     mainImage.classList.add('fade-transition');
@@ -77,10 +71,6 @@ function updateCarousel() {
         mainImage.src = carouselImages[currentCarouselIndex];
         mainImage.alt = `SOCA 2026 - Image ${currentCarouselIndex + 1}`;
         
-        // Update side previews
-        if (leftPreview) leftPreview.src = carouselImages[prevIndex];
-        if (rightPreview) rightPreview.src = carouselImages[nextIndex];
-        
         // Remove fade transition
         setTimeout(() => {
             mainImage.classList.remove('fade-transition');
@@ -89,18 +79,6 @@ function updateCarousel() {
     
     // Update indicators
     updateCarouselIndicators();
-    
-    // Add click handlers to side previews
-    const leftPreviewContainer = document.querySelector('.carousel-preview.left');
-    const rightPreviewContainer = document.querySelector('.carousel-preview.right');
-    
-    if (leftPreviewContainer) {
-        leftPreviewContainer.onclick = () => previousCarouselImage();
-    }
-    
-    if (rightPreviewContainer) {
-        rightPreviewContainer.onclick = () => nextCarouselImage();
-    }
 }
 
 // Update carousel indicators

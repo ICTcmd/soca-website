@@ -259,177 +259,290 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
+    padding: 40px 20px;
 }
 
-.carousel-track {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+/* Decorative Corner Elements */
+.corner-decoration {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corner-decoration::before {
+    content: '';
+    position: absolute;
     width: 100%;
-    position: relative;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold-primary) 0%, transparent 50%);
+    opacity: 0.3;
 }
 
-/* Side Preview Panels */
-.carousel-preview {
-    flex: 0 0 280px;
-    height: 400px;
-    overflow: hidden;
+.corner-decoration.top-left {
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, var(--gold-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.corner-decoration.top-right {
+    top: 0;
+    right: 0;
+    background: linear-gradient(225deg, var(--gold-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+.corner-decoration.bottom-left {
+    bottom: 60px;
+    left: 0;
+    background: linear-gradient(45deg, var(--gold-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.corner-decoration.bottom-right {
+    bottom: 60px;
+    right: 0;
+    background: linear-gradient(315deg, var(--gold-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Side Panels - Vertical Portrait Frames */
+.carousel-side-panel {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ornate Frame Container */
+.ornate-frame,
+.small-ornate-frame {
+    position: relative;
+    background: linear-gradient(135deg, rgba(10, 30, 61, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
+    border: 6px solid;
+    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f) 1;
     border-radius: 12px;
-    border: 4px solid rgba(212, 175, 55, 0.4);
+    overflow: hidden;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(212, 175, 55, 0.2);
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
-    position: relative;
-    opacity: 0.6;
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(212, 175, 55, 0.3),
+        inset 0 0 30px rgba(212, 175, 55, 0.1);
+    transition: all 0.4s ease;
 }
 
-.carousel-preview::after {
+.ornate-frame {
+    width: 100%;
+    height: 480px;
+}
+
+.small-ornate-frame {
+    width: 100%;
+    height: 145px;
+    border-width: 4px;
+}
+
+/* Decorative Curtain Top */
+.frame-curtain,
+.small-frame-curtain,
+.main-frame-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(180deg, 
+        rgba(139, 0, 0, 0.9) 0%,
+        rgba(178, 34, 34, 0.8) 50%,
+        rgba(139, 0, 0, 0.9) 100%
+    );
+    border-bottom: 3px solid var(--gold-primary);
+    z-index: 2;
+}
+
+.small-frame-curtain {
+    height: 25px;
+    border-bottom-width: 2px;
+}
+
+.main-frame-top {
+    height: 50px;
+    border-bottom-width: 4px;
+}
+
+/* Curtain draping effect */
+.frame-curtain::before,
+.small-frame-curtain::before,
+.main-frame-top::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(10, 30, 61, 0.3);
-    transition: all 0.3s ease;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        rgba(0, 0, 0, 0.2) 20px,
+        rgba(0, 0, 0, 0.2) 22px
+    );
 }
 
-.carousel-preview:hover {
-    opacity: 0.85;
-    transform: scale(1.03);
-    border-color: rgba(212, 175, 55, 0.6);
+/* Curtain tassels effect */
+.frame-curtain::after,
+.main-frame-top::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        var(--gold-primary) 10%,
+        var(--gold-brass) 20%,
+        transparent 30%,
+        var(--gold-primary) 40%,
+        transparent 50%,
+        var(--gold-primary) 60%,
+        transparent 70%,
+        var(--gold-brass) 80%,
+        var(--gold-primary) 90%,
+        transparent 100%
+    );
+    opacity: 0.7;
 }
 
-.carousel-preview:hover::after {
-    background: rgba(10, 30, 61, 0.1);
-}
-
-.preview-image {
+/* Side Panel Images */
+.side-panel-image,
+.stacked-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.carousel-preview:hover .preview-image {
+.ornate-frame:hover .side-panel-image,
+.small-ornate-frame:hover .stacked-image {
     transform: scale(1.05);
 }
 
-/* Main Carousel Image */
-.carousel-main {
+/* Frame Labels */
+.frame-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    font-family: Georgia, serif;
+}
+
+/* Stacked Frames Container */
+.stacked-frames {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Center Main Frame */
+.carousel-center {
     flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
     position: relative;
-    z-index: 5;
+    z-index: 3;
+    max-width: 900px;
 }
 
-.portrait-image {
-    width: 100%;
-    max-width: 750px;
-    max-height: calc(100vh - 280px);
-    height: auto;
-    border-radius: 16px;
-    object-fit: contain;
-    border: 12px solid;
+/* Main Ornate Frame */
+.main-ornate-frame {
+    position: relative;
+    flex: 1;
+    max-width: 700px;
+}
+
+.main-frame-border {
+    position: relative;
+    background: linear-gradient(135deg, rgba(10, 30, 61, 0.5) 0%, rgba(26, 58, 92, 0.5) 100%);
+    border: 15px solid;
     border-image: linear-gradient(135deg, #d4af37 0%, #f4d56a 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%) 1;
+    border-radius: 16px;
+    overflow: hidden;
     box-shadow: 
-        0 0 60px rgba(212, 175, 55, 0.5),
-        0 30px 100px rgba(0, 0, 0, 0.7),
-        inset 0 0 40px rgba(212, 175, 55, 0.1),
-        0 0 120px rgba(212, 175, 55, 0.3);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 30, 61, 0.3) 100%);
-    padding: 8px;
+        0 0 80px rgba(212, 175, 55, 0.6),
+        0 30px 100px rgba(0, 0, 0, 0.8),
+        inset 0 0 60px rgba(212, 175, 55, 0.15),
+        0 0 150px rgba(212, 175, 55, 0.4);
 }
 
-.portrait-image.fade-transition {
+.main-carousel-image {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 350px);
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.main-carousel-image.fade-transition {
     opacity: 0;
     transform: scale(0.98);
 }
 
-.portrait-image::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: linear-gradient(135deg, 
-        transparent 0%, 
-        rgba(212, 175, 55, 0.1) 25%, 
-        transparent 50%, 
-        rgba(212, 175, 55, 0.1) 75%, 
-        transparent 100%);
-    border-radius: 20px;
-    z-index: -1;
-    animation: frameGlint 6s linear infinite;
-}
-
-@keyframes frameGlint {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
-}
-
-.portrait-image:hover {
-    transform: scale(1.01);
-    box-shadow: 
-        0 0 80px rgba(212, 175, 55, 0.6),
-        0 35px 110px rgba(0, 0, 0, 0.8),
-        inset 0 0 50px rgba(212, 175, 55, 0.15),
-        0 0 140px rgba(212, 175, 55, 0.4);
-}
-
-/* Carousel Navigation Arrows */
-.carousel-nav {
+/* Navigation Arrows - Redesigned */
+.carousel-arrow {
     background: linear-gradient(135deg, var(--gold-primary), var(--gold-brass));
     color: var(--navy-primary);
-    border: none;
-    width: 60px;
-    height: 60px;
+    border: 3px solid var(--gold-brass);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s ease;
     box-shadow: 
-        0 6px 20px rgba(212, 175, 55, 0.4),
-        0 0 30px rgba(212, 175, 55, 0.3),
+        0 6px 20px rgba(212, 175, 55, 0.5),
+        0 0 40px rgba(212, 175, 55, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     z-index: 10;
     flex-shrink: 0;
 }
 
-.carousel-nav:hover {
+.carousel-arrow:hover {
     background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
-    transform: scale(1.1);
+    transform: scale(1.15);
     box-shadow: 
-        0 8px 25px rgba(212, 175, 55, 0.5),
-        0 0 50px rgba(212, 175, 55, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        0 8px 30px rgba(212, 175, 55, 0.6),
+        0 0 60px rgba(212, 175, 55, 0.5);
 }
 
-.carousel-nav:active {
+.carousel-arrow:active {
     transform: scale(1.05);
 }
 
-.carousel-nav svg {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+.carousel-arrow svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 /* Carousel Indicators */
@@ -1262,19 +1375,26 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .carousel-preview {
-        flex: 0 0 220px;
-        height: 320px;
+    .carousel-side-panel {
+        flex: 0 0 260px;
     }
     
-    .carousel-nav {
-        width: 50px;
-        height: 50px;
+    .ornate-frame {
+        height: 400px;
     }
     
-    .carousel-nav svg {
-        width: 24px;
-        height: 24px;
+    .small-ornate-frame {
+        height: 120px;
+    }
+    
+    .carousel-arrow {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-arrow svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -1298,33 +1418,41 @@ body {
         padding: 0 20px;
     }
     
-    /* Hide side previews on tablet/mobile */
-    .carousel-preview {
+    /* Hide side panels on tablet/mobile */
+    .carousel-side-panel {
         display: none;
-    }
-    
-    .carousel-track {
-        gap: 0;
     }
     
     .carousel-container {
         gap: 15px;
+        padding: 20px 10px;
     }
     
-    .carousel-nav {
-        width: 45px;
-        height: 45px;
+    .carousel-center {
+        width: 100%;
     }
     
-    .carousel-nav svg {
-        width: 20px;
-        height: 20px;
+    .main-frame-border {
+        border-width: 10px;
     }
     
-    .portrait-image {
-        max-width: 100%;
+    .main-carousel-image {
         max-height: calc(100vh - 320px);
-        border-width: 8px;
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .corner-decoration {
+        width: 80px;
+        height: 80px;
     }
     
     .carousel-indicators {
@@ -1413,20 +1541,31 @@ body {
         margin-top: 10px;
     }
     
-    .carousel-nav {
-        width: 40px;
-        height: 40px;
+    .carousel-container {
+        padding: 15px 5px;
     }
     
-    .carousel-nav svg {
-        width: 18px;
-        height: 18px;
+    .main-frame-border {
+        border-width: 8px;
     }
     
-    .portrait-image {
-        max-width: 100%;
+    .main-carousel-image {
         max-height: calc(100vh - 360px);
-        border-width: 6px;
+    }
+    
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .corner-decoration {
+        width: 60px;
+        height: 60px;
     }
     
     .carousel-indicators {
