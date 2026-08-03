@@ -139,10 +139,10 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
+    grid-template-columns: 0.9fr 1.8fr;
+    gap: 70px;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 60px;
     z-index: 10;
@@ -157,45 +157,45 @@ body {
 }
 
 .hero-eyebrow {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--gold-primary);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-family: 'Inter', sans-serif;
 }
 
 .hero-title {
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 300;
     line-height: 1.1;
     color: var(--white-pure);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-family: Georgia, 'Times New Roman', serif;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
-    font-size: 18px;
+    font-size: 17px;
     font-style: italic;
     color: var(--gray-cool);
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     font-weight: 300;
 }
 
 .hero-actions {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .btn-primary {
     background: var(--gold-primary);
     color: var(--navy-primary);
-    padding: 14px 32px;
+    padding: 12px 28px;
     border: none;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -215,10 +215,10 @@ body {
 .btn-secondary {
     background: transparent;
     color: var(--white-pure);
-    padding: 14px 32px;
+    padding: 12px 28px;
     border: 2px solid var(--gold-primary);
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -243,7 +243,7 @@ body {
 
 .portrait-image {
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     height: auto;
     border-radius: 8px;
     object-fit: contain;
