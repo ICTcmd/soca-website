@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=3.0">
+    <link rel="stylesheet" href="styles.css?v=4.0">
 </head>
 <body>
     <!-- Navigation Header -->
@@ -66,69 +66,67 @@
             <div class="hero-content">
                 <div class="hero-portrait">
                     <div class="carousel-container">
-                        <!-- Left Side Panel - Vertical Portrait -->
-                        <div class="carousel-side-panel left">
-                            <div class="ornate-frame">
+                        <!-- Left Side Image -->
+                        <div class="carousel-side-frame left">
+                            <div class="frame-border gold">
                                 <div class="frame-curtain"></div>
-                                <img src="assets/carousel-2.jpg" alt="SOCA Event" class="side-panel-image">
+                                <img src="assets/carousel-2.jpg" alt="SOCA Event" class="frame-image">
+                                <div class="frame-overlay"></div>
                                 <div class="frame-label">Asenso Bago</div>
                             </div>
                         </div>
 
-                        <!-- Center Main Frame with Navigation -->
-                        <div class="carousel-center">
-                            <!-- Navigation Arrow Left -->
-                            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous image">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
+                        <!-- Center Main Image with Navigation -->
+                        <div class="carousel-main-container">
+                            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                                 </svg>
                             </button>
 
-                            <!-- Main Ornate Frame -->
-                            <div class="main-ornate-frame">
-                                <div class="main-frame-top"></div>
-                                <div class="main-frame-border">
-                                    <img id="carouselMainImage" src="assets/mayor-portrait.jpg" alt="Mayor Marina Mayette Javellana Yao" class="main-carousel-image">
+                            <div class="carousel-center-frame">
+                                <div class="frame-border gold large">
+                                    <div class="frame-curtain large"></div>
+                                    <img id="carouselMainImage" src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="frame-image large">
+                                    <div class="frame-overlay"></div>
                                 </div>
                             </div>
 
-                            <!-- Navigation Arrow Right -->
-                            <button class="carousel-arrow right" id="carouselNext" aria-label="Next image">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
+                            <button class="carousel-arrow right" id="carouselNext" aria-label="Next">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
                                 </svg>
                             </button>
                         </div>
 
-                        <!-- Right Side Panel - Stacked Images -->
-                        <div class="carousel-side-panel right">
-                            <div class="stacked-frames">
-                                <div class="small-ornate-frame">
-                                    <div class="small-frame-curtain"></div>
-                                    <img src="assets/carousel-3.jpg" alt="SOCA Event" class="stacked-image">
+                        <!-- Right Side Stacked Images -->
+                        <div class="carousel-side-frame right">
+                            <div class="stacked-images">
+                                <div class="frame-border gold small">
+                                    <div class="frame-curtain small"></div>
+                                    <img src="assets/carousel-3.jpg" alt="SOCA Event" class="frame-image small">
+                                    <div class="frame-overlay"></div>
                                 </div>
-                                <div class="small-ornate-frame">
-                                    <div class="small-frame-curtain"></div>
-                                    <img src="assets/carousel-4.jpg" alt="SOCA Event" class="stacked-image">
+                                <div class="frame-border gold small">
+                                    <div class="frame-curtain small"></div>
+                                    <img src="assets/carousel-4.jpg" alt="SOCA Event" class="frame-image small">
+                                    <div class="frame-overlay"></div>
                                 </div>
-                                <div class="small-ornate-frame">
-                                    <div class="small-frame-curtain"></div>
-                                    <img src="assets/carousel-5.jpg" alt="SOCA Event" class="stacked-image">
+                                <div class="frame-border gold small">
+                                    <div class="frame-curtain small"></div>
+                                    <img src="assets/carousel-5.jpg" alt="SOCA Event" class="frame-image small">
+                                    <div class="frame-overlay"></div>
                                 </div>
                             </div>
-                            <div class="frame-label">Asenso Bago</div>
+                            <div class="frame-label">ASENSO BAGO</div>
                         </div>
 
-                        <!-- Decorative Corner Elements -->
-                        <div class="corner-decoration top-left"></div>
-                        <div class="corner-decoration top-right"></div>
-                        <div class="corner-decoration bottom-left"></div>
-                        <div class="corner-decoration bottom-right"></div>
-
+                        <!-- Decorative Elements -->
+                        <div class="diagonal-stripes left"></div>
+                        <div class="diagonal-stripes right"></div>
+                        
                         <!-- Carousel Indicators -->
-                        <div class="carousel-indicators" id="carouselIndicators">
-                            <!-- Will be generated by JavaScript -->
-                        </div>
+                        <div class="carousel-indicators" id="carouselIndicators"></div>
                     </div>
                 </div>
                 <div class="hero-text">

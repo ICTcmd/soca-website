@@ -259,312 +259,220 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    padding: 40px 20px;
+    gap: 25px;
+    padding: 60px 20px;
 }
 
-/* Decorative Corner Elements */
-.corner-decoration {
+/* Diagonal Stripe Decorations */
+.diagonal-stripes {
     position: absolute;
-    width: 120px;
-    height: 120px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.corner-decoration::before {
-    content: '';
-    position: absolute;
-    width: 100%;
+    width: 200px;
     height: 100%;
-    background: linear-gradient(135deg, var(--gold-primary) 0%, transparent 50%);
-    opacity: 0.3;
-}
-
-.corner-decoration.top-left {
     top: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        var(--gold-primary) 10px,
+        var(--gold-primary) 12px
+    );
+}
+
+.diagonal-stripes.left {
     left: 0;
-    background: linear-gradient(135deg, var(--gold-primary) 0%, transparent 70%);
-    opacity: 0.15;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.corner-decoration.top-right {
-    top: 0;
+.diagonal-stripes.right {
     right: 0;
-    background: linear-gradient(225deg, var(--gold-primary) 0%, transparent 70%);
-    opacity: 0.15;
-    clip-path: polygon(100% 0, 100% 100%, 0 0);
 }
 
-.corner-decoration.bottom-left {
-    bottom: 60px;
-    left: 0;
-    background: linear-gradient(45deg, var(--gold-primary) 0%, transparent 70%);
-    opacity: 0.15;
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
-}
-
-.corner-decoration.bottom-right {
-    bottom: 60px;
-    right: 0;
-    background: linear-gradient(315deg, var(--gold-primary) 0%, transparent 70%);
-    opacity: 0.15;
-    clip-path: polygon(100% 0, 100% 100%, 0 100%);
-}
-
-/* Side Panels - Vertical Portrait Frames */
-.carousel-side-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+/* Frame Borders - Universal */
+.frame-border {
     position: relative;
-    z-index: 2;
-}
-
-.carousel-side-panel.left {
-    flex: 0 0 280px;
-}
-
-.carousel-side-panel.right {
-    flex: 0 0 340px;
-}
-
-/* Ornate Frame Container */
-.ornate-frame {
-    position: relative;
-    width: 100%;
-    height: 520px;
-    background: linear-gradient(135deg, rgba(10, 30, 61, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
-    border: 8px solid;
-    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f) 1;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(212, 175, 55, 0.3),
-        inset 0 0 30px rgba(212, 175, 55, 0.1);
-    transition: all 0.4s ease;
-}
-
-/* Small HORIZONTAL frames for right side */
-.small-ornate-frame {
-    position: relative;
-    width: 100%;
-    height: 155px;
-    background: linear-gradient(135deg, rgba(10, 30, 61, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
-    border: 6px solid;
-    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f) 1;
+    background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98));
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(212, 175, 55, 0.25),
-        inset 0 0 20px rgba(212, 175, 55, 0.08);
-    transition: all 0.4s ease;
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(212, 175, 55, 0.3),
+        inset 0 0 60px rgba(0, 0, 0, 0.3);
 }
 
-/* Decorative Curtain Top */
-.frame-curtain,
-.small-frame-curtain,
-.main-frame-top {
+.frame-border.gold {
+    border: 10px solid;
+    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f, #d4af37) 1;
+}
+
+.frame-border.gold.small {
+    border-width: 6px;
+}
+
+.frame-border.gold.large {
+    border-width: 12px;
+}
+
+/* Burgundy Curtain Tops */
+.frame-curtain {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 40px;
+    height: 35px;
     background: linear-gradient(180deg, 
-        rgba(139, 0, 0, 0.9) 0%,
-        rgba(178, 34, 34, 0.8) 50%,
-        rgba(139, 0, 0, 0.9) 100%
+        rgba(120, 20, 20, 0.95) 0%,
+        rgba(160, 30, 30, 0.9) 50%,
+        rgba(120, 20, 20, 0.95) 100%
     );
-    border-bottom: 3px solid var(--gold-primary);
-    z-index: 2;
+    border-bottom: 2px solid var(--gold-primary);
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.small-frame-curtain {
-    height: 25px;
-    border-bottom-width: 2px;
-}
-
-.main-frame-top {
-    height: 50px;
-    border-bottom-width: 4px;
-}
-
-/* Curtain draping effect */
-.frame-curtain::before,
-.small-frame-curtain::before,
-.main-frame-top::before {
+.frame-curtain::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
         90deg,
-        transparent,
-        transparent 20px,
-        rgba(0, 0, 0, 0.2) 20px,
-        rgba(0, 0, 0, 0.2) 22px
+        transparent 0px,
+        transparent 15px,
+        rgba(0, 0, 0, 0.15) 15px,
+        rgba(0, 0, 0, 0.15) 17px
     );
 }
 
-/* Curtain tassels effect */
-.frame-curtain::after,
-.main-frame-top::after {
-    content: '';
+.frame-curtain.small {
+    height: 25px;
+}
+
+.frame-curtain.large {
+    height: 40px;
+    border-bottom-width: 3px;
+}
+
+/* Frame Images */
+.frame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Frame Overlay for depth */
+.frame-overlay {
     position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 8px;
-    background: linear-gradient(90deg, 
-        transparent 0%,
-        var(--gold-primary) 10%,
-        var(--gold-brass) 20%,
-        transparent 30%,
-        var(--gold-primary) 40%,
-        transparent 50%,
-        var(--gold-primary) 60%,
-        transparent 70%,
-        var(--gold-brass) 80%,
-        var(--gold-primary) 90%,
-        transparent 100%
-    );
-    opacity: 0.7;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
 }
 
-/* Stacked Frames Container */
-.stacked-frames {
+/* Side Frames */
+.carousel-side-frame {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.carousel-side-frame.left {
+    width: 260px;
+}
+
+.carousel-side-frame.left .frame-border {
+    width: 100%;
+    height: 350px;
+}
+
+.carousel-side-frame.right {
+    width: 260px;
+}
+
+/* Stacked Images on Right */
+.stacked-images {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
 }
 
-/* Side Panel Images */
-.side-panel-image {
+.stacked-images .frame-border {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.stacked-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.ornate-frame:hover .side-panel-image,
-.small-ornate-frame:hover .stacked-image {
-    transform: scale(1.05);
+    height: 105px;
 }
 
 /* Frame Labels */
 .frame-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
     color: var(--gold-primary);
     text-transform: uppercase;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     font-family: Georgia, serif;
-    margin-top: 8px;
 }
 
-/* Center Main Frame */
-.carousel-center {
+/* Center Main Container */
+.carousel-main-container {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    position: relative;
-    z-index: 3;
-    max-width: 850px;
+    gap: 15px;
+    max-width: 650px;
 }
 
-/* Main Ornate Frame - HORIZONTAL/LANDSCAPE */
-.main-ornate-frame {
-    position: relative;
+.carousel-center-frame {
     flex: 1;
-    max-width: 750px;
 }
 
-.main-frame-border {
-    position: relative;
-    background: linear-gradient(135deg, rgba(10, 30, 61, 0.5) 0%, rgba(26, 58, 92, 0.5) 100%);
-    border: 15px solid;
-    border-image: linear-gradient(135deg, #d4af37 0%, #f4d56a 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%) 1;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 
-        0 0 80px rgba(212, 175, 55, 0.6),
-        0 30px 100px rgba(0, 0, 0, 0.8),
-        inset 0 0 60px rgba(212, 175, 55, 0.15),
-        0 0 150px rgba(212, 175, 55, 0.4);
-}
-
-.main-carousel-image {
+.carousel-center-frame .frame-border {
     width: 100%;
-    height: auto;
-    max-height: 450px;
-    min-height: 350px;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    height: 350px;
 }
 
-.main-carousel-image.fade-transition {
-    opacity: 0;
-    transform: scale(0.98);
-}
-
-/* Navigation Arrows - Redesigned */
+/* Navigation Arrows */
 .carousel-arrow {
-    background: linear-gradient(135deg, var(--gold-primary), var(--gold-brass));
-    color: var(--navy-primary);
-    border: 3px solid var(--gold-brass);
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #f4d56a);
+    border: 3px solid #b8941f;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 
-        0 6px 20px rgba(212, 175, 55, 0.5),
-        0 0 40px rgba(212, 175, 55, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    z-index: 10;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
     flex-shrink: 0;
 }
 
 .carousel-arrow:hover {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
-    transform: scale(1.15);
-    box-shadow: 
-        0 8px 30px rgba(212, 175, 55, 0.6),
-        0 0 60px rgba(212, 175, 55, 0.5);
-}
-
-.carousel-arrow:active {
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #f4d56a, #d4af37);
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7);
 }
 
 .carousel-arrow svg {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    color: var(--navy-primary);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Fade Transition for Main Image */
+.frame-image.fade-transition {
+    opacity: 0;
+    transform: scale(0.95);
 }
 
 /* Carousel Indicators */
@@ -1397,37 +1305,49 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .carousel-side-panel.left {
-        flex: 0 0 240px;
+    .carousel-side-frame.left,
+    .carousel-side-frame.right {
+        width: 220px;
     }
     
-    .carousel-side-panel.right {
-        flex: 0 0 300px;
+    .carousel-side-frame.left .frame-border {
+        height: 300px;
     }
     
-    .ornate-frame {
-        height: 450px;
+    .stacked-images .frame-border {
+        height: 92px;
     }
     
-    .small-ornate-frame {
-        height: 135px;
+    .carousel-center-frame .frame-border {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-side-frame {
+        display: none;
     }
     
-    .main-carousel-image {
-        max-height: 380px;
-        min-height: 300px;
+    .diagonal-stripes {
+        width: 100px;
+    }
+    
+    .carousel-container {
+        padding: 40px 15px;
+    }
+    
+    .carousel-main-container {
+        width: 100%;
+    }
+    
+    .carousel-center-frame .frame-border {
+        height: 280px;
     }
     
     .carousel-arrow {
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
     }
-    
-    .carousel-arrow svg {
-        width: 20px;
-        height: 20px;
-    }
-}
 
 @media (max-width: 768px) {
     .nav-links {
