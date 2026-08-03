@@ -109,7 +109,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 90px;
+    padding-bottom: 40px;
     overflow: hidden;
 }
 
@@ -138,28 +139,60 @@ body {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 0.9fr 1.8fr;
-    gap: 70px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    max-width: 1600px;
+    justify-content: flex-start;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0;
     z-index: 10;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-delay: 0.3s;
+    text-align: center;
+}
+
+.hero-portrait {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex: 1;
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+
+.portrait-image {
+    width: 100%;
+    max-width: 95%;
+    max-height: calc(100vh - 350px);
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+    border: 5px solid var(--gold-primary);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.portrait-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 35px 110px rgba(0, 0, 0, 0.8);
 }
 
 .hero-text {
-    text-align: left;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 40px 20px 40px;
 }
 
 .hero-eyebrow {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--gold-primary);
     margin-bottom: 12px;
@@ -167,26 +200,27 @@ body {
 }
 
 .hero-title {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 300;
-    line-height: 1.1;
+    line-height: 1.3;
     color: var(--white-pure);
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     font-family: Georgia, 'Times New Roman', serif;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
     font-size: 17px;
     font-style: italic;
     color: var(--gray-cool);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-weight: 300;
 }
 
 .hero-actions {
     display: flex;
-    gap: 12px;
+    gap: 15px;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -233,28 +267,6 @@ body {
     color: var(--navy-primary);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
-}
-
-.hero-portrait {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.portrait-image {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: contain;
-    border: 3px solid var(--gold-primary);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portrait-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
 }
 
 /* Stats Section */
@@ -918,25 +930,47 @@ body {
         gap: 20px;
     }
     
-    .mayor-name {
-        font-size: 36px;
+    .hero-content {
+        padding: 0;
     }
     
-    .hero-subtitle {
-        font-size: 22px;
-    }
-    
-    .hero-tagline {
-        font-size: 16px;
-    }
-    
-    .hero-title-card {
-        padding: 40px 50px;
+    .hero-portrait {
+        margin-bottom: 25px;
+        padding: 0 20px;
     }
     
     .portrait-image {
-        width: 400px;
-        height: 400px;
+        max-width: 100%;
+        max-height: calc(100vh - 400px);
+        border-width: 4px;
+    }
+    
+    .hero-text {
+        padding: 0 20px 20px 20px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 15px;
+    }
+    
+    .hero-eyebrow {
+        font-size: 11px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
     }
 
     .stat-number {
@@ -976,25 +1010,31 @@ body {
         font-size: 14px;
     }
     
-    .mayor-name {
-        font-size: 28px;
-    }
-    
-    .hero-subtitle {
-        font-size: 18px;
-    }
-    
-    .hero-tagline {
-        font-size: 14px;
-    }
-    
-    .hero-title-card {
-        padding: 30px 35px;
+    .hero-portrait {
+        padding: 0 15px;
+        margin-bottom: 20px;
     }
     
     .portrait-image {
-        width: 280px;
-        height: 280px;
+        max-width: 100%;
+        max-height: calc(100vh - 450px);
+        border-width: 3px;
+    }
+    
+    .hero-text {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .hero-title {
+        font-size: 26px;
+    }
+    
+    .hero-subtitle {
+        font-size: 13px;
+    }
+    
+    .hero-eyebrow {
+        font-size: 10px;
     }
 }
 
