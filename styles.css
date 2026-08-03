@@ -319,7 +319,6 @@ body {
 
 /* Side Panels - Vertical Portrait Frames */
 .carousel-side-panel {
-    flex: 0 0 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -328,12 +327,21 @@ body {
     z-index: 2;
 }
 
+.carousel-side-panel.left {
+    flex: 0 0 280px;
+}
+
+.carousel-side-panel.right {
+    flex: 0 0 340px;
+}
+
 /* Ornate Frame Container */
-.ornate-frame,
-.small-ornate-frame {
+.ornate-frame {
     position: relative;
+    width: 100%;
+    height: 520px;
     background: linear-gradient(135deg, rgba(10, 30, 61, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
-    border: 6px solid;
+    border: 8px solid;
     border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f) 1;
     border-radius: 12px;
     overflow: hidden;
@@ -344,15 +352,21 @@ body {
     transition: all 0.4s ease;
 }
 
-.ornate-frame {
-    width: 100%;
-    height: 480px;
-}
-
+/* Small HORIZONTAL frames for right side */
 .small-ornate-frame {
+    position: relative;
     width: 100%;
-    height: 145px;
-    border-width: 4px;
+    height: 155px;
+    background: linear-gradient(135deg, rgba(10, 30, 61, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
+    border: 6px solid;
+    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f) 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(212, 175, 55, 0.25),
+        inset 0 0 20px rgba(212, 175, 55, 0.08);
+    transition: all 0.4s ease;
 }
 
 /* Decorative Curtain Top */
@@ -428,8 +442,22 @@ body {
     opacity: 0.7;
 }
 
+/* Stacked Frames Container */
+.stacked-frames {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
 /* Side Panel Images */
-.side-panel-image,
+.side-panel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
 .stacked-image {
     width: 100%;
     height: 100%;
@@ -444,21 +472,14 @@ body {
 
 /* Frame Labels */
 .frame-label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--gold-primary);
     text-transform: uppercase;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     font-family: Georgia, serif;
-}
-
-/* Stacked Frames Container */
-.stacked-frames {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    margin-top: 8px;
 }
 
 /* Center Main Frame */
@@ -470,14 +491,14 @@ body {
     gap: 20px;
     position: relative;
     z-index: 3;
-    max-width: 900px;
+    max-width: 850px;
 }
 
-/* Main Ornate Frame */
+/* Main Ornate Frame - HORIZONTAL/LANDSCAPE */
 .main-ornate-frame {
     position: relative;
     flex: 1;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .main-frame-border {
@@ -485,7 +506,7 @@ body {
     background: linear-gradient(135deg, rgba(10, 30, 61, 0.5) 0%, rgba(26, 58, 92, 0.5) 100%);
     border: 15px solid;
     border-image: linear-gradient(135deg, #d4af37 0%, #f4d56a 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%) 1;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 
         0 0 80px rgba(212, 175, 55, 0.6),
@@ -497,8 +518,9 @@ body {
 .main-carousel-image {
     width: 100%;
     height: auto;
-    max-height: calc(100vh - 350px);
-    object-fit: contain;
+    max-height: 450px;
+    min-height: 350px;
+    object-fit: cover;
     display: block;
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -1375,16 +1397,25 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .carousel-side-panel {
-        flex: 0 0 260px;
+    .carousel-side-panel.left {
+        flex: 0 0 240px;
+    }
+    
+    .carousel-side-panel.right {
+        flex: 0 0 300px;
     }
     
     .ornate-frame {
-        height: 400px;
+        height: 450px;
     }
     
     .small-ornate-frame {
-        height: 120px;
+        height: 135px;
+    }
+    
+    .main-carousel-image {
+        max-height: 380px;
+        min-height: 300px;
     }
     
     .carousel-arrow {
