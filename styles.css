@@ -58,6 +58,8 @@ body {
     width: auto;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    background: transparent;
+    mix-blend-mode: normal;
 }
 
 .city-logo:hover {
@@ -240,10 +242,11 @@ body {
 }
 
 .portrait-image {
-    width: 550px;
-    height: 550px;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
     border: 3px solid var(--gold-primary);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
