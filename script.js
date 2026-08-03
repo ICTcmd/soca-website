@@ -1,4 +1,171 @@
 // ==========================================
+// HERO CAROUSEL FUNCTIONALITY
+// ==========================================
+
+// Carousel configuration
+const carouselImages = [
+    'assets/mayor-portrait.jpg',  // Image 1 - Main portrait
+    'assets/mayor-portrait.jpg',  // Image 2 - Placeholder (replace with your image)
+    'assets/mayor-portrait.jpg',  // Image 3 - Placeholder (replace with your image)
+    'assets/mayor-portrait.jpg',  // Image 4 - Placeholder (replace with your image)
+    'assets/mayor-portrait.jpg'   // Image 5 - Placeholder (replace with your image)
+];
+
+let currentCarouselIndex = 0;
+let carouselAutoPlayInterval = null;
+let isCarouselAutoPlaying = false;
+
+// Initialize carousel
+function initCarousel() {
+    generateCarouselIndicators();
+    updateCarousel();
+    
+    // Event listeners
+    document.getElementById('carouselPrev')?.addEventListener('click', previousCarouselImage);
+    document.getElementById('carouselNext')?.addEventListener('click', nextCarouselImage);
+    
+    // Auto-play carousel
+    startCarouselAutoPlay();
+    
+    // Pause on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopCarouselAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startCarouselAutoPlay);
+    }
+}
+
+// Generate carousel indicators
+function generateCarouselIndicators() {
+    const indicatorsContainer = document.getElementById('carouselIndicators');
+    if (!indicatorsContainer) return;
+    
+    indicatorsContainer.innerHTML = '';
+    
+    carouselImages.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = 'carousel-indicator';
+        if (index === currentCarouselIndex) {
+            indicator.classList.add('active');
+        }
+        
+        indicator.addEventListener('click', () => {
+            goToCarouselImage(index);
+        });
+        
+        indicatorsContainer.appendChild(indicator);
+    });
+}
+
+// Update carousel display
+function updateCarousel() {
+    const mainImage = document.getElementById('carouselMainImage');
+    const leftPreview = document.querySelector('.carousel-preview.left img');
+    const rightPreview = document.querySelector('.carousel-preview.right img');
+    
+    if (!mainImage) return;
+    
+    // Calculate indices
+    const prevIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
+    const nextIndex = (currentCarouselIndex + 1) % carouselImages.length;
+    
+    // Add fade transition
+    mainImage.classList.add('fade-transition');
+    
+    setTimeout(() => {
+        // Update main image
+        mainImage.src = carouselImages[currentCarouselIndex];
+        mainImage.alt = `SOCA 2026 - Image ${currentCarouselIndex + 1}`;
+        
+        // Update side previews
+        if (leftPreview) leftPreview.src = carouselImages[prevIndex];
+        if (rightPreview) rightPreview.src = carouselImages[nextIndex];
+        
+        // Remove fade transition
+        setTimeout(() => {
+            mainImage.classList.remove('fade-transition');
+        }, 50);
+    }, 300);
+    
+    // Update indicators
+    updateCarouselIndicators();
+    
+    // Add click handlers to side previews
+    const leftPreviewContainer = document.querySelector('.carousel-preview.left');
+    const rightPreviewContainer = document.querySelector('.carousel-preview.right');
+    
+    if (leftPreviewContainer) {
+        leftPreviewContainer.onclick = () => previousCarouselImage();
+    }
+    
+    if (rightPreviewContainer) {
+        rightPreviewContainer.onclick = () => nextCarouselImage();
+    }
+}
+
+// Update carousel indicators
+function updateCarouselIndicators() {
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    indicators.forEach((indicator, index) => {
+        if (index === currentCarouselIndex) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+}
+
+// Navigate to specific carousel image
+function goToCarouselImage(index) {
+    if (index < 0 || index >= carouselImages.length) return;
+    currentCarouselIndex = index;
+    updateCarousel();
+}
+
+// Previous carousel image
+function previousCarouselImage() {
+    currentCarouselIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
+    updateCarousel();
+}
+
+// Next carousel image
+function nextCarouselImage() {
+    currentCarouselIndex = (currentCarouselIndex + 1) % carouselImages.length;
+    updateCarousel();
+}
+
+// Start carousel auto-play
+function startCarouselAutoPlay() {
+    if (isCarouselAutoPlaying) return;
+    isCarouselAutoPlaying = true;
+    
+    carouselAutoPlayInterval = setInterval(() => {
+        nextCarouselImage();
+    }, 5000); // Change image every 5 seconds
+}
+
+// Stop carousel auto-play
+function stopCarouselAutoPlay() {
+    if (carouselAutoPlayInterval) {
+        clearInterval(carouselAutoPlayInterval);
+        carouselAutoPlayInterval = null;
+    }
+    isCarouselAutoPlaying = false;
+}
+
+// Keyboard navigation for carousel
+document.addEventListener('keydown', (event) => {
+    const thumbnailGrid = document.getElementById('thumbnailGrid');
+    if (thumbnailGrid && thumbnailGrid.style.display !== 'none') return; // Don't interfere with slide viewer
+    
+    if (event.key === 'ArrowLeft') {
+        previousCarouselImage();
+    } else if (event.key === 'ArrowRight') {
+        nextCarouselImage();
+    }
+});
+
+// ==========================================
 // SLIDE VIEWER FUNCTIONALITY
 // ==========================================
 
@@ -278,6 +445,7 @@ function updateActiveThumbnail() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();
     initSlideViewer();
 });
 

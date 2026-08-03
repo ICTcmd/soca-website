@@ -223,7 +223,7 @@ body {
 .hero-portrait {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     flex: 1;
     padding: 0 40px;
@@ -255,9 +255,87 @@ body {
     }
 }
 
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    position: relative;
+}
+
+/* Side Preview Panels */
+.carousel-preview {
+    flex: 0 0 280px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 4px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(212, 175, 55, 0.2);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+    opacity: 0.6;
+}
+
+.carousel-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 30, 61, 0.3);
+    transition: all 0.3s ease;
+}
+
+.carousel-preview:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+    border-color: rgba(212, 175, 55, 0.6);
+}
+
+.carousel-preview:hover::after {
+    background: rgba(10, 30, 61, 0.1);
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-preview:hover .preview-image {
+    transform: scale(1.05);
+}
+
+/* Main Carousel Image */
+.carousel-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
 .portrait-image {
     width: 100%;
-    max-width: 95%;
+    max-width: 750px;
     max-height: calc(100vh - 280px);
     height: auto;
     border-radius: 16px;
@@ -269,10 +347,15 @@ body {
         0 30px 100px rgba(0, 0, 0, 0.7),
         inset 0 0 40px rgba(212, 175, 55, 0.1),
         0 0 120px rgba(212, 175, 55, 0.3);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 30, 61, 0.3) 100%);
     padding: 8px;
+}
+
+.portrait-image.fade-transition {
+    opacity: 0;
+    transform: scale(0.98);
 }
 
 .portrait-image::before {
@@ -309,6 +392,77 @@ body {
         0 35px 110px rgba(0, 0, 0, 0.8),
         inset 0 0 50px rgba(212, 175, 55, 0.15),
         0 0 140px rgba(212, 175, 55, 0.4);
+}
+
+/* Carousel Navigation Arrows */
+.carousel-nav {
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-brass));
+    color: var(--navy-primary);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        0 6px 20px rgba(212, 175, 55, 0.4),
+        0 0 30px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.carousel-nav:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    transform: scale(1.1);
+    box-shadow: 
+        0 8px 25px rgba(212, 175, 55, 0.5),
+        0 0 50px rgba(212, 175, 55, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.carousel-nav:active {
+    transform: scale(1.05);
+}
+
+.carousel-nav svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.3);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator:hover {
+    background: rgba(212, 175, 55, 0.5);
+    transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+    background: var(--gold-primary);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    transform: scale(1.3);
 }
 
 .hero-text {
@@ -1107,6 +1261,23 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .carousel-preview {
+        flex: 0 0 220px;
+        height: 320px;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-nav svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         gap: 20px;
@@ -1122,15 +1293,48 @@ body {
     }
     
     .hero-portrait {
-        margin-bottom: 30px;
+        margin-bottom: 60px;
         margin-top: 15px;
         padding: 0 20px;
+    }
+    
+    /* Hide side previews on tablet/mobile */
+    .carousel-preview {
+        display: none;
+    }
+    
+    .carousel-track {
+        gap: 0;
+    }
+    
+    .carousel-container {
+        gap: 15px;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-nav svg {
+        width: 20px;
+        height: 20px;
     }
     
     .portrait-image {
         max-width: 100%;
         max-height: calc(100vh - 320px);
         border-width: 8px;
+    }
+    
+    .carousel-indicators {
+        bottom: -40px;
+        gap: 10px;
+    }
+    
+    .carousel-indicator {
+        width: 10px;
+        height: 10px;
     }
     
     .hero-text {
@@ -1205,14 +1409,34 @@ body {
     
     .hero-portrait {
         padding: 0 15px;
-        margin-bottom: 25px;
+        margin-bottom: 55px;
         margin-top: 10px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav svg {
+        width: 18px;
+        height: 18px;
     }
     
     .portrait-image {
         max-width: 100%;
         max-height: calc(100vh - 360px);
         border-width: 6px;
+    }
+    
+    .carousel-indicators {
+        bottom: -35px;
+        gap: 8px;
+    }
+    
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
     }
     
     .hero-text {
