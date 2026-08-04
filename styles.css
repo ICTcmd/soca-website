@@ -294,6 +294,15 @@ body {
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
+.carousel-slide.transitioning {
+    pointer-events: none;
+}
+
+.carousel-slide.transitioning .slide-image {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
 .carousel-slide.prev,
 .carousel-slide.next {
     opacity: 0.4;
@@ -314,12 +323,17 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 1;
 }
 
 .carousel-slide.prev .slide-image,
 .carousel-slide.next .slide-image {
     transform: scale(1.05);
+}
+
+.carousel-slide.active .slide-image {
+    transform: scale(1);
 }
 
 /* Slide Frames */
