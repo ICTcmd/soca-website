@@ -41,7 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=4.0">
+    <link rel="stylesheet" href="styles.css?v=5.0">
+    
+    <script src="script.js?v=5.0"></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -65,68 +67,52 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-portrait">
-                    <div class="carousel-container">
-                        <!-- Left Side Image -->
-                        <div class="carousel-side-frame left">
-                            <div class="frame-border gold">
-                                <div class="frame-curtain"></div>
-                                <img src="assets/carousel-2.jpg" alt="SOCA Event" class="frame-image">
-                                <div class="frame-overlay"></div>
-                                <div class="frame-label">Asenso Bago</div>
+                    <div class="carousel-wrapper">
+                        <!-- Left Navigation Arrow -->
+                        <button class="carousel-nav-arrow left" id="carouselPrev" aria-label="Previous">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Carousel Track with 3 visible slides -->
+                        <div class="carousel-track-container">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Previous slide (left preview) -->
+                                <div class="carousel-slide prev">
+                                    <div class="slide-frame">
+                                        <div class="frame-curtain"></div>
+                                        <img src="assets/carousel-5.jpg" alt="Previous" class="slide-image">
+                                    </div>
+                                </div>
+
+                                <!-- Current slide (center main) -->
+                                <div class="carousel-slide active">
+                                    <div class="slide-frame main">
+                                        <div class="frame-curtain"></div>
+                                        <img id="mainSlideImage" src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="slide-image">
+                                    </div>
+                                </div>
+
+                                <!-- Next slide (right preview) -->
+                                <div class="carousel-slide next">
+                                    <div class="slide-frame">
+                                        <div class="frame-curtain"></div>
+                                        <img src="assets/carousel-2.jpg" alt="Next" class="slide-image">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Center Main Image with Navigation -->
-                        <div class="carousel-main-container">
-                            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                                </svg>
-                            </button>
+                        <!-- Right Navigation Arrow -->
+                        <button class="carousel-nav-arrow right" id="carouselNext" aria-label="Next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </button>
 
-                            <div class="carousel-center-frame">
-                                <div class="frame-border gold large">
-                                    <div class="frame-curtain large"></div>
-                                    <img id="carouselMainImage" src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="frame-image large">
-                                    <div class="frame-overlay"></div>
-                                </div>
-                            </div>
-
-                            <button class="carousel-arrow right" id="carouselNext" aria-label="Next">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Right Side Stacked Images -->
-                        <div class="carousel-side-frame right">
-                            <div class="stacked-images">
-                                <div class="frame-border gold small">
-                                    <div class="frame-curtain small"></div>
-                                    <img src="assets/carousel-3.jpg" alt="SOCA Event" class="frame-image small">
-                                    <div class="frame-overlay"></div>
-                                </div>
-                                <div class="frame-border gold small">
-                                    <div class="frame-curtain small"></div>
-                                    <img src="assets/carousel-4.jpg" alt="SOCA Event" class="frame-image small">
-                                    <div class="frame-overlay"></div>
-                                </div>
-                                <div class="frame-border gold small">
-                                    <div class="frame-curtain small"></div>
-                                    <img src="assets/carousel-5.jpg" alt="SOCA Event" class="frame-image small">
-                                    <div class="frame-overlay"></div>
-                                </div>
-                            </div>
-                            <div class="frame-label">ASENSO BAGO</div>
-                        </div>
-
-                        <!-- Decorative Elements -->
-                        <div class="diagonal-stripes left"></div>
-                        <div class="diagonal-stripes right"></div>
-                        
                         <!-- Carousel Indicators -->
-                        <div class="carousel-indicators" id="carouselIndicators"></div>
+                        <div class="carousel-dots" id="carouselIndicators"></div>
                     </div>
                 </div>
                 <div class="hero-text">
@@ -444,6 +430,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=5.0"></script>
 </body>
 </html>

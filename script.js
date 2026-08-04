@@ -59,23 +59,29 @@ function generateCarouselIndicators() {
 
 // Update carousel display
 function updateCarousel() {
-    const mainImage = document.getElementById('carouselMainImage');
+    const track = document.getElementById('carouselTrack');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const mainImage = document.getElementById('mainSlideImage');
     
-    if (!mainImage) return;
+    if (!track || !mainImage) return;
     
-    // Add fade transition
-    mainImage.classList.add('fade-transition');
+    // Calculate indices
+    const prevIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
+    const nextIndex = (currentCarouselIndex + 1) % carouselImages.length;
     
-    setTimeout(() => {
-        // Update main image
-        mainImage.src = carouselImages[currentCarouselIndex];
-        mainImage.alt = `SOCA 2026 - Image ${currentCarouselIndex + 1}`;
-        
-        // Remove fade transition
-        setTimeout(() => {
-            mainImage.classList.remove('fade-transition');
-        }, 50);
-    }, 300);
+    // Update slide classes
+    slides.forEach(slide => {
+        slide.classList.remove('prev', 'active', 'next');
+    });
+    
+    slides[0].classList.add('prev');
+    slides[1].classList.add('active');
+    slides[2].classList.add('next');
+    
+    // Update images
+    slides[0].querySelector('.slide-image').src = carouselImages[prevIndex];
+    slides[1].querySelector('.slide-image').src = carouselImages[currentCarouselIndex];
+    slides[2].querySelector('.slide-image').src = carouselImages[nextIndex];
     
     // Update indicators
     updateCarouselIndicators();
