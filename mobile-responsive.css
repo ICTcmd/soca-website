@@ -1,0 +1,392 @@
+/* ========================================
+   COMPREHENSIVE MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Tablet and Below (768px) */
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-content {
+        padding: 12px 20px;
+    }
+    
+    .city-logo {
+        height: 45px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+        font-size: 13px;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 20px;
+    }
+    
+    .hero-content {
+        padding: 80px 15px 0 15px;
+    }
+    
+    .hero-text {
+        padding: 0 20px 20px 20px;
+        margin-top: 40px;
+    }
+    
+    .hero-eyebrow {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+    
+    /* Speech Section */
+    .speech-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .video-container h3 {
+        font-size: 20px !important;
+    }
+    
+    .video-container p {
+        font-size: 14px !important;
+    }
+    
+    .speech-text {
+        padding: 40px 25px;
+        border-radius: 16px;
+    }
+    
+    .speech-body p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
+    .speech-body h3 {
+        font-size: 24px;
+        margin-top: 30px;
+    }
+    
+    .pull-quote {
+        font-size: 18px;
+        padding: 25px 25px;
+        margin: 30px 0;
+    }
+    
+    .date-stamp {
+        font-size: 12px;
+    }
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 60px 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .project-card {
+        margin: 0 10px;
+    }
+    
+    .project-content {
+        padding: 25px;
+    }
+    
+    .project-content h3 {
+        font-size: 22px;
+    }
+    
+    .project-budget {
+        font-size: 18px;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+        padding: 60px 0;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .gallery-item {
+        border-radius: 12px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 50px 0 25px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-section h4 {
+        font-size: 18px;
+    }
+    
+    .footer-section p {
+        font-size: 15px;
+    }
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    /* Container */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-content {
+        padding: 10px 15px;
+    }
+    
+    .city-logo {
+        height: 40px;
+    }
+    
+    .nav-links {
+        gap: 12px;
+        font-size: 11px;
+    }
+    
+    .nav-links a {
+        letter-spacing: 0.3px;
+    }
+    
+    /* Hero Section */
+    .hero-content {
+        padding: 70px 10px 0 10px;
+    }
+    
+    .hero-text {
+        padding: 0 15px 15px 15px;
+        margin-top: 30px;
+    }
+    
+    .hero-eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+    
+    .hero-title {
+        font-size: 26px;
+        line-height: 1.25;
+        margin-bottom: 10px;
+    }
+    
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    
+    /* Speech Section */
+    .speech-section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .video-container h3 {
+        font-size: 18px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .video-container p {
+        font-size: 13px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .speech-text {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    
+    .speech-body p {
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+    }
+    
+    .speech-body h3 {
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .pull-quote {
+        font-size: 16px;
+        padding: 20px 20px;
+        margin: 25px 0;
+    }
+    
+    .speech-closing {
+        font-size: 17px;
+        margin-top: 30px;
+    }
+    
+    .date-stamp {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 50px 0;
+    }
+    
+    .projects-grid {
+        gap: 25px;
+    }
+    
+    .project-card {
+        margin: 0 5px;
+    }
+    
+    .project-content {
+        padding: 20px;
+    }
+    
+    .project-content h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .project-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .project-budget {
+        font-size: 17px;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+        padding: 50px 0;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .gallery-item {
+        border-radius: 10px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .footer-section h4 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-section p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    
+    .footer-bottom {
+        padding-top: 25px;
+        font-size: 13px;
+    }
+    
+    .social-links a {
+        font-size: 14px;
+    }
+}
+
+/* Landscape Mobile (max-height: 500px) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+    }
+    
+    .hero-content {
+        padding: 60px 15px 20px 15px;
+    }
+    
+    .hero-portrait {
+        margin: 10px auto 30px auto;
+    }
+    
+    .hero-text {
+        margin-top: 20px;
+    }
+}
+
+/* Very Large Screens */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 52px;
+    }
+    
+    .section-title {
+        font-size: 54px;
+    }
+}
