@@ -70,7 +70,7 @@ body {
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     background: transparent;
-    mix-blend-mode: normal;
+    mix-blend-mode: screen;
 }
 
 .city-logo:hover {
