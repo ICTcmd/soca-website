@@ -259,7 +259,7 @@ body {
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 40px 0;
     display: flex;
@@ -270,7 +270,7 @@ body {
 /* Carousel Track Container */
 .carousel-track-container {
     flex: 1;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
 }
 
@@ -287,8 +287,12 @@ body {
 .carousel-slide {
     flex-shrink: 0;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide.prev,
+.carousel-slide.next {
     opacity: 0.5;
-    transform: scale(0.85);
+    transform: scale(0.8);
 }
 
 .carousel-slide.active {
@@ -297,16 +301,10 @@ body {
     z-index: 10;
 }
 
-.carousel-slide.prev,
-.carousel-slide.next {
-    opacity: 0.6;
-    transform: scale(0.75);
-}
-
 /* Slide Frames */
 .slide-frame {
     position: relative;
-    width: 350px;
+    width: 420px;
     height: 400px;
     background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98));
     border: 8px solid;
@@ -320,8 +318,8 @@ body {
 }
 
 .slide-frame.main {
-    width: 650px;
-    height: 420px;
+    width: 700px;
+    height: 450px;
     border-width: 12px;
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.9),
@@ -1241,15 +1239,31 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .slide-frame {
-        width: 300px;
-        height: 350px;
+        width: 350px;
+        height: 360px;
     }
     
     .slide-frame.main {
-        width: 550px;
-        height: 370px;
+        width: 600px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .slide-frame {
+        width: 300px;
+        height: 320px;
+    }
+    
+    .slide-frame.main {
+        width: 520px;
+        height: 360px;
+    }
+    
+    .carousel-track {
+        gap: 20px;
     }
 }
 
@@ -1273,6 +1287,20 @@ body {
     .carousel-wrapper {
         padding: 30px 0;
     }
+}
+
+@media (max-width: 480px) {
+    .slide-frame.main {
+        max-width: 100%;
+        height: 280px;
+        border-width: 8px;
+    }
+    
+    .carousel-nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
 
 @media (max-width: 768px) {
     .nav-links {
