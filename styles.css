@@ -272,6 +272,9 @@ body {
     flex: 1;
     overflow: visible;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Carousel Track */
