@@ -259,13 +259,13 @@ body {
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 /* Carousel Track Container */
@@ -276,6 +276,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 }
 
 /* Carousel Track */
@@ -295,8 +296,8 @@ body {
 
 .carousel-slide.prev,
 .carousel-slide.next {
-    opacity: 0.5;
-    transform: scale(0.8);
+    opacity: 0.4;
+    transform: scale(1);
 }
 
 .carousel-slide.active {
@@ -308,8 +309,8 @@ body {
 /* Slide Frames */
 .slide-frame {
     position: relative;
-    width: 420px;
-    height: 400px;
+    width: 500px;
+    height: 360px;
     background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98));
     border: 8px solid;
     border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f, #d4af37) 1;
@@ -1245,8 +1246,8 @@ body {
 /* Responsive Design */
 @media (max-width: 1400px) {
     .slide-frame {
-        width: 350px;
-        height: 360px;
+        width: 400px;
+        height: 300px;
     }
     
     .slide-frame.main {
@@ -1257,8 +1258,8 @@ body {
 
 @media (max-width: 1200px) {
     .slide-frame {
-        width: 300px;
-        height: 320px;
+        width: 350px;
+        height: 280px;
     }
     
     .slide-frame.main {
@@ -1267,6 +1268,10 @@ body {
     }
     
     .carousel-track {
+        gap: 20px;
+    }
+    
+    .carousel-wrapper {
         gap: 20px;
     }
 }
