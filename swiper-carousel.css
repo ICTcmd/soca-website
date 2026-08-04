@@ -195,19 +195,106 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Mobile: Adjust swiper slide size for peek effect */
     .swiper-slide {
-        width: 90vw;
-        height: 60vw;
+        width: 85vw !important;
+        height: 60vw !important;
+        max-height: 400px;
     }
     
+    /* Mobile: Ensure center slide dominates */
+    .swiper-slide-active {
+        transform: scale(1) !important;
+    }
+    
+    .swiper-slide:not(.swiper-slide-active) {
+        opacity: 0.4 !important;
+        transform: scale(0.85) !important;
+    }
+    
+    /* Mobile: Move navigation arrows below carousel */
     .swiper-button-next,
     .swiper-button-prev {
         width: 50px;
         height: 50px;
+        top: auto;
+        bottom: -70px;
+    }
+    
+    .swiper-button-prev {
+        left: calc(50% - 70px);
+        right: auto;
+    }
+    
+    .swiper-button-next {
+        right: calc(50% - 70px);
+        left: auto;
     }
     
     .swiper-button-next::after,
     .swiper-button-prev::after {
         font-size: 20px;
+    }
+    
+    /* Mobile: Adjust pagination position */
+    .swiper-pagination {
+        bottom: -120px !important;
+    }
+    
+    /* Mobile: Reduce hero portrait margin */
+    .hero-portrait {
+        margin: 10px auto 120px auto;
+    }
+    
+    /* Mobile: Adjust swiper padding */
+    .heroSwiper {
+        padding: 40px 0 140px 0;
+    }
+    
+    /* Mobile: Reduce frame border */
+    .slide-frame {
+        border-width: 8px;
+    }
+    
+    /* Mobile: Adjust curtain height */
+    .frame-curtain {
+        height: 30px;
+        border-bottom-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small phones: Even more compact */
+    .swiper-slide {
+        width: 90vw !important;
+        height: 65vw !important;
+        max-height: 350px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 18px;
+    }
+    
+    .slide-frame {
+        border-width: 6px;
+    }
+    
+    .frame-curtain {
+        height: 25px;
+    }
+}
+
+/* Tablet landscape adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .swiper-slide {
+        width: 600px;
+        height: 400px;
     }
 }
