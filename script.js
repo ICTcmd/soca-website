@@ -61,38 +61,26 @@ function generateCarouselIndicators() {
 function updateCarousel() {
     const track = document.getElementById('carouselTrack');
     const slides = track.querySelectorAll('.carousel-slide');
-    const mainImage = document.getElementById('mainSlideImage');
     
-    if (!track || !mainImage) return;
+    if (!track) return;
     
     // Calculate indices
     const prevIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
     const nextIndex = (currentCarouselIndex + 1) % carouselImages.length;
     
-    // Add transitioning class for smooth animation
-    slides.forEach(slide => slide.classList.add('transitioning'));
+    // Update slide classes smoothly
+    slides.forEach(slide => {
+        slide.classList.remove('prev', 'active', 'next');
+    });
     
-    // Small delay to allow CSS transition to take effect
-    setTimeout(() => {
-        // Update slide classes
-        slides.forEach(slide => {
-            slide.classList.remove('prev', 'active', 'next');
-        });
-        
-        slides[0].classList.add('prev');
-        slides[1].classList.add('active');
-        slides[2].classList.add('next');
-        
-        // Update images with fade effect
-        slides[0].querySelector('.slide-image').src = carouselImages[prevIndex];
-        slides[1].querySelector('.slide-image').src = carouselImages[currentCarouselIndex];
-        slides[2].querySelector('.slide-image').src = carouselImages[nextIndex];
-        
-        // Remove transitioning class after animation completes
-        setTimeout(() => {
-            slides.forEach(slide => slide.classList.remove('transitioning'));
-        }, 800);
-    }, 50);
+    slides[0].classList.add('prev');
+    slides[1].classList.add('active');
+    slides[2].classList.add('next');
+    
+    // Update images
+    slides[0].querySelector('.slide-image').src = carouselImages[prevIndex];
+    slides[1].querySelector('.slide-image').src = carouselImages[currentCarouselIndex];
+    slides[2].querySelector('.slide-image').src = carouselImages[nextIndex];
     
     // Update indicators
     updateCarouselIndicators();
