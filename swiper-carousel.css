@@ -1,0 +1,213 @@
+/* Swiper Hero Carousel Styles */
+
+.hero-portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    flex: 1;
+    padding: 0;
+    margin: 20px auto 80px auto;
+    position: relative;
+}
+
+.hero-portrait::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    animation: spotlightTop 3s ease-in-out infinite alternate;
+}
+
+@keyframes spotlightTop {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Swiper Carousel Container */
+.swiper-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 0;
+    position: relative;
+}
+
+.heroSwiper {
+    width: 100%;
+    padding: 60px 0 80px 0;
+    overflow: visible;
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-slide {
+    width: 700px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Inactive slides (side slides) */
+.swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.5 !important;
+    transform: scale(0.8) !important;
+}
+
+.swiper-slide:not(.swiper-slide-active) .slide-frame {
+    filter: brightness(0.7);
+}
+
+/* Active slide (center) */
+.swiper-slide-active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    z-index: 10 !important;
+}
+
+.swiper-slide-active .slide-frame {
+    filter: brightness(1);
+    box-shadow: 
+        0 40px 100px rgba(0, 0, 0, 1),
+        0 0 100px rgba(212, 175, 55, 0.7),
+        0 0 150px rgba(212, 175, 55, 0.4),
+        inset 0 0 90px rgba(0, 0, 0, 0.45);
+}
+
+/* Slide Frames */
+.slide-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98));
+    border: 12px solid;
+    border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f, #d4af37) 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(212, 175, 55, 0.5),
+        inset 0 0 80px rgba(0, 0, 0, 0.4);
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Slide Images */
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+/* Frame Curtain */
+.frame-curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(180deg, 
+        rgba(120, 20, 20, 0.95) 0%,
+        rgba(160, 30, 30, 0.9) 50%,
+        rgba(120, 20, 20, 0.95) 100%
+    );
+    border-bottom: 3px solid #d4af37;
+    z-index: 20;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.frame-curtain::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 15px,
+        rgba(0, 0, 0, 0.15) 15px,
+        rgba(0, 0, 0, 0.15) 17px
+    );
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #f4d56a);
+    border: 3px solid #b8941f;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px;
+    font-weight: 900;
+    color: #0a1e3d;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: linear-gradient(135deg, #f4d56a, #d4af37);
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.8);
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    background: rgba(212, 175, 55, 0.4);
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: #d4af37;
+    border-color: #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    transform: scale(1.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 90vw;
+        height: 60vw;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 20px;
+    }
+}

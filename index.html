@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     
     <!-- SEO and Meta Information -->
@@ -40,8 +40,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=6.8">
+    <link rel="stylesheet" href="styles.css?v=7.0">
+    <link rel="stylesheet" href="swiper-carousel.css?v=1.0">
     
     <script src="script.js?v=5.2"></script>
 </head>
@@ -67,52 +71,54 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-portrait">
-                    <div class="carousel-wrapper">
-                        <!-- Left Navigation Arrow -->
-                        <button class="carousel-nav-arrow left" id="carouselPrev" aria-label="Previous">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                            </svg>
-                        </button>
-
-                        <!-- Carousel Track with 3 visible slides -->
-                        <div class="carousel-track-container">
-                            <div class="carousel-track" id="carouselTrack">
-                                <!-- Previous slide (left preview) -->
-                                <div class="carousel-slide prev">
+                    <div class="swiper-carousel-container">
+                        <!-- Swiper -->
+                        <div class="swiper heroSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide">
                                     <div class="slide-frame">
                                         <div class="frame-curtain"></div>
-                                        <img src="assets/carousel-5.jpg" alt="Previous" class="slide-image">
+                                        <img src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="slide-image">
                                     </div>
                                 </div>
-
-                                <!-- Current slide (center main) -->
-                                <div class="carousel-slide active">
-                                    <div class="slide-frame main">
-                                        <div class="frame-curtain"></div>
-                                        <img id="mainSlideImage" src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="slide-image">
-                                    </div>
-                                </div>
-
-                                <!-- Next slide (right preview) -->
-                                <div class="carousel-slide next">
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide">
                                     <div class="slide-frame">
                                         <div class="frame-curtain"></div>
-                                        <img src="assets/carousel-2.jpg" alt="Next" class="slide-image">
+                                        <img src="assets/carousel-2.jpg" alt="Carousel Image 2" class="slide-image">
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="swiper-slide">
+                                    <div class="slide-frame">
+                                        <div class="frame-curtain"></div>
+                                        <img src="assets/carousel-3.jpg" alt="Carousel Image 3" class="slide-image">
+                                    </div>
+                                </div>
+                                <!-- Slide 4 -->
+                                <div class="swiper-slide">
+                                    <div class="slide-frame">
+                                        <div class="frame-curtain"></div>
+                                        <img src="assets/carousel-4.jpg" alt="Carousel Image 4" class="slide-image">
+                                    </div>
+                                </div>
+                                <!-- Slide 5 -->
+                                <div class="swiper-slide">
+                                    <div class="slide-frame">
+                                        <div class="frame-curtain"></div>
+                                        <img src="assets/carousel-5.jpg" alt="Carousel Image 5" class="slide-image">
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            
+                            <!-- Pagination -->
+                            <div class="swiper-pagination"></div>
                         </div>
-
-                        <!-- Right Navigation Arrow -->
-                        <button class="carousel-nav-arrow right" id="carouselNext" aria-label="Next">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
-                        </button>
-
-                        <!-- Carousel Indicators -->
-                        <div class="carousel-dots" id="carouselIndicators"></div>
                     </div>
                 </div>
                 <div class="hero-text">
@@ -431,5 +437,50 @@
     </footer>
 
     <script src="script.js?v=5.0"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Initialize Swiper -->
+    <script>
+        // Initialize Swiper carousel
+        const heroSwiper = new Swiper('.heroSwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            speed: 800,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: false,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            on: {
+                click: function (swiper, event) {
+                    // Allow clicking on side slides to navigate
+                    const clickedSlide = event.target.closest('.swiper-slide');
+                    if (clickedSlide && !clickedSlide.classList.contains('swiper-slide-active')) {
+                        const clickedIndex = parseInt(clickedSlide.getAttribute('data-swiper-slide-index'));
+                        swiper.slideToLoop(clickedIndex);
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
