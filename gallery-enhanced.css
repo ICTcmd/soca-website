@@ -33,15 +33,17 @@
 .gallery-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    background: #f8f9fa;
 }
 
 /* Gallery Images */
 .gallery-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     display: block;
     transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
@@ -49,7 +51,7 @@
 /* Infographic images - preserve text readability */
 .gallery-item.infographic .gallery-image {
     object-fit: contain;
-    background: #f8f9fa;
+    background: #ffffff;
 }
 
 /* Hover State - Premium Effect */
