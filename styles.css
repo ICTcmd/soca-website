@@ -701,7 +701,7 @@ body {
 /* Speech Section */
 .speech-section {
     background: var(--white-pure);
-    padding: 100px 0;
+    padding: 100px 0 40px 0;
 }
 
 .section-title {
