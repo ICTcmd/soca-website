@@ -115,35 +115,9 @@
     display: block;
 }
 
-/* Frame Curtain */
+/* Frame Curtain - HIDDEN */
 .frame-curtain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(180deg, 
-        rgba(120, 20, 20, 0.95) 0%,
-        rgba(160, 30, 30, 0.9) 50%,
-        rgba(120, 20, 20, 0.95) 100%
-    );
-    border-bottom: 3px solid #d4af37;
-    z-index: 20;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.frame-curtain::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 15px,
-        rgba(0, 0, 0, 0.15) 15px,
-        rgba(0, 0, 0, 0.15) 17px
-    );
+    display: none;
 }
 
 /* Swiper Navigation Buttons */
