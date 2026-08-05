@@ -8,45 +8,26 @@
     max-width: 100%;
     flex: 1;
     padding: 0;
-    margin: 20px auto 80px auto;
+    margin: 30px auto 40px auto;
     position: relative;
-}
-
-.hero-portrait::before {
-    content: '';
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
-    filter: blur(60px);
-    z-index: -1;
-    animation: spotlightTop 3s ease-in-out infinite alternate;
-}
-
-@keyframes spotlightTop {
-    0% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 0.8;
-    }
 }
 
 /* Swiper Carousel Container */
 .swiper-carousel-container {
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px;
     padding: 40px 0;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .heroSwiper {
     width: 100%;
-    padding: 60px 0 80px 0;
+    padding: 60px 0 100px 0;
     overflow: visible;
+    flex: 1;
 }
 
 .swiper-wrapper {
@@ -55,7 +36,7 @@
 
 .swiper-slide {
     width: 700px;
-    height: 450px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,11 +70,11 @@
         inset 0 0 90px rgba(0, 0, 0, 0.45);
 }
 
-/* Slide Frames */
+/* Slide Frames - Fixed Aspect Ratio 16:9 */
 .slide-frame {
     position: relative;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98));
     border: 12px solid;
     border-image: linear-gradient(135deg, #d4af37, #f4d56a, #d4af37, #b8941f, #d4af37) 1;
@@ -106,44 +87,60 @@
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-/* Slide Images */
+/* Slide Images - Fill Frame Completely */
 .slide-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
 }
 
-/* Frame Curtain - HIDDEN */
-.frame-curtain {
-    display: none;
-}
-
-/* Swiper Navigation Buttons */
-.swiper-button-next,
-.swiper-button-prev {
+/* External Navigation Arrows - Outside Container */
+.carousel-nav-external {
+    position: absolute;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #d4af37, #f4d56a);
     border: 3px solid #b8941f;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    z-index: 100;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 24px;
-    font-weight: 900;
-    color: #0a1e3d;
+.carousel-nav-external.left {
+    left: -80px;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
+.carousel-nav-external.right {
+    right: -80px;
+}
+
+.carousel-nav-external svg {
+    color: var(--navy-primary);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.carousel-nav-external:hover {
     background: linear-gradient(135deg, #f4d56a, #d4af37);
-    transform: scale(1.15) translateY(-3px);
+    transform: translateY(-50%) scale(1.15);
     box-shadow: 0 10px 35px rgba(212, 175, 55, 0.8);
+}
+
+.carousel-nav-external:hover svg {
+    transform: scale(1.1);
+}
+
+.carousel-nav-external:active {
+    transform: translateY(-50%) scale(1.05);
 }
 
 /* Swiper Pagination */
@@ -167,13 +164,93 @@
     transform: scale(1.4);
 }
 
+/* Hero Text Above Carousel */
+.hero-text-top {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+}
+
+.hero-text-top .hero-eyebrow {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-primary);
+    margin-bottom: 16px;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.6),
+        0 0 40px rgba(212, 175, 55, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-text-top .hero-title {
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--white-pure);
+    margin-bottom: 14px;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(212, 175, 55, 0.3);
+}
+
+.hero-text-top .hero-subtitle {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gray-cool);
+    margin-bottom: 0;
+    font-weight: 300;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Hero Actions Below Carousel */
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
 /* Responsive */
+@media (max-width: 1400px) {
+    .carousel-nav-external.left {
+        left: -60px;
+    }
+    
+    .carousel-nav-external.right {
+        right: -60px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .carousel-nav-external.left {
+        left: 10px;
+    }
+    
+    .carousel-nav-external.right {
+        right: 10px;
+    }
+    
+    .swiper-carousel-container {
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     /* Mobile: Adjust swiper slide size for peek effect */
     .swiper-slide {
         width: 85vw !important;
-        height: 60vw !important;
-        max-height: 400px;
+        height: auto !important;
+    }
+    
+    .slide-frame {
+        aspect-ratio: 16 / 9;
+        border-width: 8px;
     }
     
     /* Mobile: Ensure center slide dominates */
@@ -186,54 +263,55 @@
         transform: scale(0.85) !important;
     }
     
-    /* Mobile: Move navigation arrows below carousel */
-    .swiper-button-next,
-    .swiper-button-prev {
+    /* Mobile: Position arrows inside */
+    .carousel-nav-external {
         width: 50px;
         height: 50px;
-        top: auto;
-        bottom: -70px;
+        top: 50%;
     }
     
-    .swiper-button-prev {
-        left: calc(50% - 70px);
-        right: auto;
+    .carousel-nav-external.left {
+        left: 10px;
     }
     
-    .swiper-button-next {
-        right: calc(50% - 70px);
-        left: auto;
+    .carousel-nav-external.right {
+        right: 10px;
     }
     
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 20px;
+    .carousel-nav-external svg {
+        width: 20px;
+        height: 20px;
     }
     
     /* Mobile: Adjust pagination position */
     .swiper-pagination {
-        bottom: -120px !important;
+        bottom: 10px !important;
     }
     
     /* Mobile: Reduce hero portrait margin */
     .hero-portrait {
-        margin: 10px auto 120px auto;
+        margin: 20px auto 30px auto;
     }
     
     /* Mobile: Adjust swiper padding */
     .heroSwiper {
-        padding: 40px 0 140px 0;
+        padding: 40px 0 80px 0;
     }
     
-    /* Mobile: Reduce frame border */
-    .slide-frame {
-        border-width: 8px;
+    .hero-text-top .hero-title {
+        font-size: 32px;
     }
     
-    /* Mobile: Adjust curtain height */
-    .frame-curtain {
-        height: 30px;
-        border-bottom-width: 2px;
+    .hero-text-top .hero-eyebrow {
+        font-size: 13px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -241,27 +319,24 @@
     /* Extra small phones: Even more compact */
     .swiper-slide {
         width: 90vw !important;
-        height: 65vw !important;
-        max-height: 350px;
     }
     
-    .swiper-button-next,
-    .swiper-button-prev {
+    .carousel-nav-external {
         width: 45px;
         height: 45px;
     }
     
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 18px;
+    .carousel-nav-external svg {
+        width: 18px;
+        height: 18px;
     }
     
     .slide-frame {
         border-width: 6px;
     }
     
-    .frame-curtain {
-        height: 25px;
+    .hero-text-top .hero-title {
+        font-size: 26px;
     }
 }
 
@@ -269,6 +344,13 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .swiper-slide {
         width: 600px;
-        height: 400px;
+    }
+    
+    .carousel-nav-external.left {
+        left: -40px;
+    }
+    
+    .carousel-nav-external.right {
+        right: -40px;
     }
 }

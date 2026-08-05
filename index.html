@@ -47,8 +47,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=7.5">
-    <link rel="stylesheet" href="swiper-carousel.css?v=1.2">
+    <link rel="stylesheet" href="styles.css?v=7.6">
+    <link rel="stylesheet" href="swiper-carousel.css?v=2.0">
     <link rel="stylesheet" href="mobile-responsive.css?v=1.0">
     <link rel="stylesheet" href="gallery-enhanced.css?v=1.1">
     
@@ -75,65 +75,74 @@
         <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content">
+                <!-- Title Block Above Carousel -->
+                <div class="hero-text-top">
+                    <div class="hero-eyebrow">State of the City Address 2026</div>
+                    <h1 class="hero-title">Mayor Marina Mayette Javellana Yao</h1>
+                    <p class="hero-subtitle">"Building Tomorrow's Bago City, Today"</p>
+                </div>
+                
+                <!-- Carousel -->
                 <div class="hero-portrait">
                     <div class="swiper-carousel-container">
+                        <!-- Navigation Arrows - Outside -->
+                        <button class="carousel-nav-external left" id="carouselPrevExternal" aria-label="Previous">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        
                         <!-- Swiper -->
                         <div class="swiper heroSwiper">
                             <div class="swiper-wrapper">
                                 <!-- Slide 1 -->
                                 <div class="swiper-slide">
                                     <div class="slide-frame">
-                                        <div class="frame-curtain"></div>
                                         <img src="assets/mayor-portrait.jpg" alt="SOCA 2026" class="slide-image">
                                     </div>
                                 </div>
                                 <!-- Slide 2 -->
                                 <div class="swiper-slide">
                                     <div class="slide-frame">
-                                        <div class="frame-curtain"></div>
                                         <img src="assets/carousel-2.jpg" alt="Carousel Image 2" class="slide-image">
                                     </div>
                                 </div>
                                 <!-- Slide 3 -->
                                 <div class="swiper-slide">
                                     <div class="slide-frame">
-                                        <div class="frame-curtain"></div>
                                         <img src="assets/carousel-3.jpg" alt="Carousel Image 3" class="slide-image">
                                     </div>
                                 </div>
                                 <!-- Slide 4 -->
                                 <div class="swiper-slide">
                                     <div class="slide-frame">
-                                        <div class="frame-curtain"></div>
                                         <img src="assets/carousel-4.jpg" alt="Carousel Image 4" class="slide-image">
                                     </div>
                                 </div>
                                 <!-- Slide 5 -->
                                 <div class="swiper-slide">
                                     <div class="slide-frame">
-                                        <div class="frame-curtain"></div>
                                         <img src="assets/carousel-5.jpg" alt="Carousel Image 5" class="slide-image">
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- Navigation Buttons -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            
                             <!-- Pagination -->
                             <div class="swiper-pagination"></div>
                         </div>
+                        
+                        <button class="carousel-nav-external right" id="carouselNextExternal" aria-label="Next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <div class="hero-text">
-                    <div class="hero-eyebrow">State of the City Address 2026</div>
-                    <h1 class="hero-title">Mayor Marina Mayette Javellana Yao</h1>
-                    <p class="hero-subtitle">"Building Tomorrow's Bago City, Today"</p>
-                    <div class="hero-actions">
-                        <a href="#speech" class="btn-primary">Watch the Address</a>
-                        <a href="#speech" class="btn-secondary">Read Transcript</a>
-                    </div>
+                
+                <!-- CTA Buttons Below Carousel -->
+                <div class="hero-actions">
+                    <a href="#speech" class="btn-primary">Watch the Address</a>
+                    <a href="#speech" class="btn-secondary">Read Transcript</a>
                 </div>
             </div>
         </div>
@@ -689,10 +698,6 @@
                 delay: 5000,
                 disableOnInteraction: false,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -734,6 +739,15 @@
                     }
                 }
             }
+        });
+        
+        // External navigation buttons
+        document.getElementById('carouselPrevExternal')?.addEventListener('click', () => {
+            heroSwiper.slidePrev();
+        });
+        
+        document.getElementById('carouselNextExternal')?.addEventListener('click', () => {
+            heroSwiper.slideNext();
         });
     </script>
 </body>
