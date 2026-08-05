@@ -18,43 +18,56 @@
     }
     
     .nav-links {
-        gap: 20px;
-        font-size: 13px;
+        gap: 15px;
+        font-size: 12px;
     }
     
     /* Hero Section */
     .hero-section {
         min-height: auto;
-        padding-bottom: 20px;
+        padding-bottom: 40px;
     }
     
     .hero-content {
-        padding: 80px 15px 0 15px;
+        padding: 80px 15px 20px 15px;
     }
     
-    .hero-text {
-        padding: 0 20px 20px 20px;
-        margin-top: 40px;
+    /* Hero Text Above Carousel */
+    .hero-text-top {
+        margin-bottom: 20px;
+        padding: 0 15px;
     }
     
-    .hero-eyebrow {
+    .hero-text-top .hero-eyebrow {
         font-size: 13px;
         letter-spacing: 2px;
+        margin-bottom: 12px;
     }
     
-    .hero-title {
-        font-size: 32px;
+    .hero-text-top .hero-title {
+        font-size: 28px;
         line-height: 1.2;
+        margin-bottom: 10px;
     }
     
-    .hero-subtitle {
-        font-size: 16px;
+    .hero-text-top .hero-subtitle {
+        font-size: 15px;
     }
     
+    /* Hero Portrait/Carousel */
+    .hero-portrait {
+        margin: 20px auto 30px auto;
+        padding: 0 10px;
+    }
+    
+    /* Hero Actions */
     .hero-actions {
         flex-direction: column;
         width: 100%;
+        max-width: 400px;
         gap: 12px;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
     }
     
     .btn-primary,
@@ -71,7 +84,7 @@
     }
     
     .section-title {
-        font-size: 36px;
+        font-size: 32px;
         margin-bottom: 40px;
     }
     
@@ -94,12 +107,12 @@
     }
     
     .speech-body h3 {
-        font-size: 24px;
+        font-size: 22px;
         margin-top: 30px;
     }
     
     .pull-quote {
-        font-size: 18px;
+        font-size: 17px;
         padding: 25px 25px;
         margin: 30px 0;
     }
@@ -189,7 +202,7 @@
     }
     
     .nav-links {
-        gap: 12px;
+        gap: 10px;
         font-size: 11px;
     }
     
@@ -199,29 +212,43 @@
     
     /* Hero Section */
     .hero-content {
-        padding: 70px 10px 0 10px;
+        padding: 70px 10px 20px 10px;
     }
     
-    .hero-text {
-        padding: 0 15px 15px 15px;
-        margin-top: 30px;
+    /* Hero Text */
+    .hero-text-top {
+        margin-bottom: 15px;
+        padding: 0 10px;
     }
     
-    .hero-eyebrow {
+    .hero-text-top .hero-eyebrow {
         font-size: 11px;
         letter-spacing: 1.5px;
-        margin-bottom: 12px;
-    }
-    
-    .hero-title {
-        font-size: 26px;
-        line-height: 1.25;
         margin-bottom: 10px;
     }
     
-    .hero-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
+    .hero-text-top .hero-title {
+        font-size: 24px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+    }
+    
+    .hero-text-top .hero-subtitle {
+        font-size: 13px;
+    }
+    
+    /* Hero Portrait */
+    .hero-portrait {
+        margin: 15px auto 25px auto;
+        padding: 0 5px;
+    }
+    
+    /* Hero Actions */
+    .hero-actions {
+        max-width: 100%;
+        padding: 0 15px;
+        gap: 10px;
+        margin-top: 25px;
     }
     
     .btn-primary,
@@ -236,7 +263,7 @@
     }
     
     .section-title {
-        font-size: 30px;
+        font-size: 28px;
         margin-bottom: 30px;
     }
     
@@ -262,19 +289,19 @@
     }
     
     .speech-body h3 {
-        font-size: 22px;
+        font-size: 20px;
         margin-top: 25px;
         margin-bottom: 15px;
     }
     
     .pull-quote {
-        font-size: 16px;
+        font-size: 15px;
         padding: 20px 20px;
         margin: 25px 0;
     }
     
     .speech-closing {
-        font-size: 17px;
+        font-size: 16px;
         margin-top: 30px;
     }
     
@@ -320,12 +347,16 @@
     }
     
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
     
     .gallery-item {
         border-radius: 10px;
+    }
+    
+    .gallery-image-wrapper {
+        aspect-ratio: 4 / 3;
     }
     
     /* Footer */
@@ -368,10 +399,18 @@
     }
     
     .hero-portrait {
-        margin: 10px auto 30px auto;
+        margin: 10px auto 20px auto;
     }
     
-    .hero-text {
+    .hero-text-top {
+        margin-bottom: 10px;
+    }
+    
+    .hero-text-top .hero-title {
+        font-size: 24px;
+    }
+    
+    .hero-actions {
         margin-top: 20px;
     }
 }
@@ -382,11 +421,30 @@
         max-width: 1400px;
     }
     
-    .hero-title {
+    .hero-text-top .hero-title {
         font-size: 52px;
     }
     
     .section-title {
         font-size: 54px;
+    }
+}
+
+/* Tablet Portrait (600px - 768px) */
+@media (min-width: 600px) and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+        max-width: 600px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: auto;
+        min-width: 200px;
     }
 }
