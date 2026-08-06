@@ -10,6 +10,7 @@
     padding: 0;
     margin: 30px auto 40px auto;
     position: relative;
+    min-height: 300px;
 }
 
 /* Swiper Carousel Container */
@@ -21,6 +22,7 @@
     display: flex;
     align-items: center;
     gap: 40px;
+    min-height: 300px;
 }
 
 .heroSwiper {
@@ -28,10 +30,12 @@
     padding: 60px 0 100px 0;
     overflow: visible;
     flex: 1;
+    min-height: 300px;
 }
 
 .swiper-wrapper {
     align-items: center;
+    min-height: 250px;
 }
 
 .swiper-slide {
@@ -42,6 +46,7 @@
     align-items: center;
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
     cursor: pointer;
+    min-height: 250px;
 }
 
 /* Inactive slides (side slides) */
@@ -242,32 +247,64 @@
 }
 
 @media (max-width: 768px) {
+    /* Mobile: Force visibility and sizing */
+    .hero-portrait {
+        display: flex !important;
+        margin: 20px auto 30px auto;
+        min-height: 280px !important;
+        padding: 0 10px;
+        overflow: visible !important;
+    }
+    
     /* Mobile: Adjust swiper container */
     .swiper-carousel-container {
         padding: 20px 0;
         gap: 0;
+        min-height: 280px !important;
+        display: flex !important;
+    }
+    
+    /* Mobile: Swiper must be visible */
+    .heroSwiper {
+        padding: 40px 0 80px 0;
+        min-height: 280px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Mobile: Wrapper must be visible */
+    .swiper-wrapper {
+        min-height: 250px !important;
+        display: flex !important;
     }
     
     /* Mobile: Adjust swiper slide size for peek effect */
     .swiper-slide {
         width: 85vw !important;
         height: auto !important;
-        min-height: 200px !important;
+        min-height: 230px !important;
+        display: flex !important;
+        visibility: visible !important;
     }
     
     .slide-frame {
         aspect-ratio: 16 / 9;
         border-width: 8px;
-        min-height: 200px;
+        min-height: 230px !important;
+        display: block !important;
+        background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98)) !important;
     }
     
     /* Ensure images display properly on mobile */
     .slide-image {
-        width: 100%;
-        height: 100%;
-        min-height: 200px;
-        object-fit: cover;
-        object-position: center;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 230px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     /* Mobile: Ensure center slide dominates */
@@ -303,18 +340,7 @@
     /* Mobile: Adjust pagination position */
     .swiper-pagination {
         bottom: 10px !important;
-    }
-    
-    /* Mobile: Reduce hero portrait margin */
-    .hero-portrait {
-        margin: 20px auto 30px auto;
-        min-height: 250px;
-    }
-    
-    /* Mobile: Adjust swiper padding */
-    .heroSwiper {
-        padding: 40px 0 80px 0;
-        min-height: 280px;
+        display: flex !important;
     }
     
     .hero-text-top .hero-title {
@@ -336,8 +362,30 @@
 
 @media (max-width: 480px) {
     /* Extra small phones: Even more compact */
+    .hero-portrait {
+        min-height: 260px !important;
+    }
+    
+    .swiper-carousel-container {
+        min-height: 260px !important;
+    }
+    
+    .heroSwiper {
+        min-height: 260px !important;
+    }
+    
     .swiper-slide {
         width: 90vw !important;
+        min-height: 210px !important;
+    }
+    
+    .slide-frame {
+        border-width: 6px;
+        min-height: 210px !important;
+    }
+    
+    .slide-image {
+        min-height: 210px !important;
     }
     
     .carousel-nav-external {
@@ -348,10 +396,6 @@
     .carousel-nav-external svg {
         width: 18px;
         height: 18px;
-    }
-    
-    .slide-frame {
-        border-width: 6px;
     }
     
     .hero-text-top .hero-title {
