@@ -1,102 +1,73 @@
 // ==========================================
-// HERO CAROUSEL FUNCTIONALITY
+// SWIPER HERO CAROUSEL INITIALIZATION
 // ==========================================
 
-// Carousel configuration
-const carouselImages = [
-    'assets/mayor-portrait.jpg',  // Image 1 - Main portrait at podium
-    'assets/carousel-2.jpg',      // Image 2 - Your second image
-    'assets/carousel-3.jpg',      // Image 3 - Your third image
-    'assets/carousel-4.jpg',      // Image 4 - Your fourth image
-    'assets/carousel-5.jpg'       // Image 5 - Your fifth image
-];
-
-let currentCarouselIndex = 0;
-let carouselAutoPlayInterval = null;
-let isCarouselAutoPlaying = false;
-
-// Initialize carousel
-function initCarousel() {
-    generateCarouselIndicators();
-    updateCarousel();
-    
-    // Event listeners
-    document.getElementById('carouselPrev')?.addEventListener('click', previousCarouselImage);
-    document.getElementById('carouselNext')?.addEventListener('click', nextCarouselImage);
-    
-    // Auto-play carousel
-    startCarouselAutoPlay();
-    
-    // Pause on hover
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopCarouselAutoPlay);
-        carouselContainer.addEventListener('mouseleave', startCarouselAutoPlay);
-    }
-}
-
-// Generate carousel indicators
-function generateCarouselIndicators() {
-    const indicatorsContainer = document.getElementById('carouselIndicators');
-    if (!indicatorsContainer) return;
-    
-    indicatorsContainer.innerHTML = '';
-    
-    carouselImages.forEach((_, index) => {
-        const indicator = document.createElement('div');
-        indicator.className = 'carousel-indicator';
-        if (index === currentCarouselIndex) {
-            indicator.classList.add('active');
+// Initialize Swiper when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Hero Swiper Carousel
+    const heroSwiper = new Swiper('.heroSwiper', {
+        // Coverflow effect for centered carousel
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false,
+        },
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        // Auto-play
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        // Loop
+        loop: true,
+        // Speed
+        speed: 800,
+        // Breakpoints for responsive
+        breakpoints: {
+            // Mobile
+            320: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+            },
+            // Tablet
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+            },
+            // Desktop
+            1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 40,
+            }
         }
-        
-        indicator.addEventListener('click', () => {
-            goToCarouselImage(index);
+    });
+    
+    // External navigation buttons
+    const prevBtn = document.getElementById('carouselPrevExternal');
+    const nextBtn = document.getElementById('carouselNextExternal');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            heroSwiper.slidePrev();
         });
-        
-        indicatorsContainer.appendChild(indicator);
-    });
-}
-
-// Update carousel display
-function updateCarousel() {
-    const track = document.getElementById('carouselTrack');
-    const slides = track.querySelectorAll('.carousel-slide');
+    }
     
-    if (!track) return;
-    
-    // Calculate indices
-    const prevIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
-    const nextIndex = (currentCarouselIndex + 1) % carouselImages.length;
-    
-    // Update slide classes smoothly
-    slides.forEach(slide => {
-        slide.classList.remove('prev', 'active', 'next');
-    });
-    
-    slides[0].classList.add('prev');
-    slides[1].classList.add('active');
-    slides[2].classList.add('next');
-    
-    // Update images
-    slides[0].querySelector('.slide-image').src = carouselImages[prevIndex];
-    slides[1].querySelector('.slide-image').src = carouselImages[currentCarouselIndex];
-    slides[2].querySelector('.slide-image').src = carouselImages[nextIndex];
-    
-    // Update indicators
-    updateCarouselIndicators();
-}
-
-// Update carousel indicators
-function updateCarouselIndicators() {
-    const indicators = document.querySelectorAll('.carousel-indicator');
-    indicators.forEach((indicator, index) => {
-        if (index === currentCarouselIndex) {
-            indicator.classList.add('active');
-        } else {
-            indicator.classList.remove('active');
-        }
-    });
-}
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            heroSwiper.slideNext();
+        });
+    }
+});
 
 // Navigate to specific carousel image
 function goToCarouselImage(index) {
