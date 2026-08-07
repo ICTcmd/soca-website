@@ -51,8 +51,7 @@
     <link rel="stylesheet" href="swiper-carousel.css?v=2.2">
     <link rel="stylesheet" href="mobile-responsive.css?v=2.1">
     <link rel="stylesheet" href="gallery-enhanced.css?v=1.1">
-    
-    <script src="script.js?v=5.3"></script>
+
 </head>
 <body>
     <!-- Navigation Header -->
@@ -660,95 +659,8 @@
     <!-- GLightbox JS -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
     
-    <!-- Initialize GLightbox -->
-    <script>
-        // Initialize GLightbox for gallery
-        const lightbox = GLightbox({
-            touchNavigation: true,
-            loop: true,
-            autoplayVideos: false,
-            skin: 'clean',
-            closeButton: true,
-            closeOnOutsideClick: true,
-            keyboardNavigation: true,
-            draggable: true,
-            dragAutoSnap: true,
-            preload: true
-        });
-    </script>
+    <!-- Main Script - Load after libraries -->
+    <script src="script.js?v=5.4"></script>
     
-    <!-- Initialize Swiper -->
-    <script>
-        // Initialize Swiper carousel
-        const heroSwiper = new Swiper('.heroSwiper', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            loop: true,
-            speed: 800,
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 300,
-                modifier: 1,
-                slideShadows: false,
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            // Responsive breakpoints
-            breakpoints: {
-                // Mobile (< 768px)
-                0: {
-                    slidesPerView: 1.2,
-                    spaceBetween: 10,
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 150,
-                        modifier: 1,
-                        slideShadows: false,
-                    },
-                },
-                // Tablet (>= 768px)
-                768: {
-                    slidesPerView: 'auto',
-                    spaceBetween: 30,
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 300,
-                        modifier: 1,
-                        slideShadows: false,
-                    },
-                },
-            },
-            on: {
-                click: function (swiper, event) {
-                    // Allow clicking on side slides to navigate
-                    const clickedSlide = event.target.closest('.swiper-slide');
-                    if (clickedSlide && !clickedSlide.classList.contains('swiper-slide-active')) {
-                        const clickedIndex = parseInt(clickedSlide.getAttribute('data-swiper-slide-index'));
-                        swiper.slideToLoop(clickedIndex);
-                    }
-                }
-            }
-        });
-        
-        // External navigation buttons
-        document.getElementById('carouselPrevExternal')?.addEventListener('click', () => {
-            heroSwiper.slidePrev();
-        });
-        
-        document.getElementById('carouselNextExternal')?.addEventListener('click', () => {
-            heroSwiper.slideNext();
-        });
-    </script>
 </body>
 </html>

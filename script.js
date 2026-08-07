@@ -2,8 +2,14 @@
 // SWIPER HERO CAROUSEL INITIALIZATION
 // ==========================================
 
-// Initialize Swiper when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+// Wait for Swiper library to load
+function initializeCarousel() {
+    if (typeof Swiper === 'undefined') {
+        console.log('Swiper not loaded yet, retrying...');
+        setTimeout(initializeCarousel, 100);
+        return;
+    }
+
     // Initialize Hero Swiper Carousel
     const heroSwiper = new Swiper('.heroSwiper', {
         // Coverflow effect for centered carousel
@@ -14,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         coverflowEffect: {
             rotate: 0,
             stretch: 0,
-            depth: 200,
+            depth: 300,
             modifier: 1,
             slideShadows: false,
         },
@@ -25,29 +31,48 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         // Auto-play
         autoplay: {
-            delay: 4000,
+            delay: 5000,
             disableOnInteraction: false,
         },
         // Loop
         loop: true,
         // Speed
         speed: 800,
-        // Breakpoints for responsive
+        // Responsive breakpoints
         breakpoints: {
-            // Mobile
-            320: {
+            // Mobile (< 768px)
+            0: {
                 slidesPerView: 1.2,
-                spaceBetween: 20,
+                spaceBetween: 10,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 150,
+                    modifier: 1,
+                    slideShadows: false,
+                },
             },
-            // Tablet
+            // Tablet (>= 768px)
             768: {
                 slidesPerView: 'auto',
                 spaceBetween: 30,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 300,
+                    modifier: 1,
+                    slideShadows: false,
+                },
             },
-            // Desktop
-            1024: {
-                slidesPerView: 'auto',
-                spaceBetween: 40,
+        },
+        on: {
+            click: function (swiper, event) {
+                // Allow clicking on side slides to navigate
+                const clickedSlide = event.target.closest('.swiper-slide');
+                if (clickedSlide && !clickedSlide.classList.contains('swiper-slide-active')) {
+                    const clickedIndex = parseInt(clickedSlide.getAttribute('data-swiper-slide-index'));
+                    swiper.slideToLoop(clickedIndex);
+                }
             }
         }
     });
@@ -67,6 +92,42 @@ document.addEventListener('DOMContentLoaded', function() {
             heroSwiper.slideNext();
         });
     }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCarousel();
+});
+
+// ==========================================
+// GLIGHTBOX GALLERY INITIALIZATION
+// ==========================================
+
+function initializeGallery() {
+    if (typeof GLightbox === 'undefined') {
+        console.log('GLightbox not loaded yet, retrying...');
+        setTimeout(initializeGallery, 100);
+        return;
+    }
+    
+    // Initialize GLightbox for gallery
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false,
+        skin: 'clean',
+        closeButton: true,
+        closeOnOutsideClick: true,
+        keyboardNavigation: true,
+        draggable: true,
+        dragAutoSnap: true,
+        preload: true
+    });
+}
+
+// Initialize gallery
+document.addEventListener('DOMContentLoaded', function() {
+    initializeGallery();
 });
 
 // Navigate to specific carousel image
