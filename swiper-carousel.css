@@ -254,7 +254,7 @@
         margin: 20px auto 30px auto;
         min-height: 300px !important;
         padding: 0 10px;
-        overflow: visible !important;
+        overflow: hidden !important;
     }
     
     /* Mobile: Adjust swiper container */
@@ -263,7 +263,7 @@
         gap: 0;
         min-height: 300px !important;
         display: flex !important;
-        overflow: visible !important;
+        overflow: hidden !important;
     }
     
     /* Mobile: Swiper must be visible */
@@ -273,26 +273,44 @@
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        overflow: visible !important;
+        overflow: hidden !important;
+        width: 100% !important;
     }
     
-    /* Mobile: Wrapper must be visible */
+    /* Mobile: Wrapper - SINGLE slide visible */
     .swiper-wrapper {
         min-height: 260px !important;
         display: flex !important;
         align-items: center !important;
+        position: relative !important;
+        width: 100% !important;
+        overflow: hidden !important;
     }
     
-    /* Mobile: CRITICAL - Set explicit width! */
+    /* Mobile: CRITICAL - Only one slide visible, others hidden */
     .swiper-slide {
-        width: 85vw !important;
-        max-width: 85vw !important;
+        width: 90% !important;
+        max-width: 90% !important;
         flex-shrink: 0 !important;
         height: auto !important;
         min-height: 250px !important;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        transition: opacity 0.5s ease !important;
+    }
+    
+    /* Mobile: Active slide is visible and centered */
+    .swiper-slide.active,
+    .swiper-slide[style*="display: flex"] {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
+        position: relative !important;
+        margin: 0 auto !important;
     }
     
     .slide-frame {
@@ -317,29 +335,13 @@
         opacity: 1 !important;
     }
     
-    /* Mobile: Inactive slides should still be visible but dimmed */
-    .swiper-slide:not(.swiper-slide-active) {
-        opacity: 0.5 !important;
-        transform: scale(0.85) !important;
-        visibility: visible !important;
-        display: flex !important;
-    }
-    
-    /* Mobile: Ensure center slide is fully visible */
-    .swiper-slide-active {
-        transform: scale(1) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: flex !important;
-        z-index: 10 !important;
-    }
-    
-    /* Mobile: Position arrows inside */
+    /* Mobile: Position arrows inside and visible */
     .carousel-nav-external {
         width: 50px;
         height: 50px;
         top: 50%;
         display: flex !important;
+        z-index: 100 !important;
     }
     
     .carousel-nav-external.left {
@@ -360,6 +362,8 @@
         bottom: 10px !important;
         display: flex !important;
         visibility: visible !important;
+        position: absolute !important;
+        z-index: 100 !important;
     }
     
     .hero-text-top .hero-title {
