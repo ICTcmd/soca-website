@@ -11,9 +11,10 @@ function isMobile() {
 function initSimpleMobileCarousel() {
     console.log('Initializing SIMPLE mobile carousel...');
     
-    const slides = document.querySelectorAll('.swiper-slide');
-    const wrapper = document.querySelector('.swiper-wrapper');
-    const pagination = document.querySelector('.swiper-pagination');
+    // CRITICAL: Only select slides within .heroSwiper to avoid conflict with presentation slides
+    const slides = document.querySelectorAll('.heroSwiper .swiper-slide');
+    const wrapper = document.querySelector('.heroSwiper .swiper-wrapper');
+    const pagination = document.querySelector('.heroSwiper .swiper-pagination');
     
     if (!slides.length || !wrapper) {
         console.error('Carousel elements not found!');
