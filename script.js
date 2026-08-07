@@ -24,24 +24,40 @@ function initSimpleMobileCarousel() {
     
     // Show first slide
     function showSlide(index) {
+        console.log('showSlide called with index:', index, 'Total slides:', slides.length);
+        
+        // Ensure index is valid
+        if (index < 0 || index >= slides.length) {
+            console.error('Invalid slide index:', index);
+            return;
+        }
+        
         // First, hide all slides immediately
-        slides.forEach((slide) => {
+        slides.forEach((slide, i) => {
             slide.style.display = 'none';
             slide.style.opacity = '0';
             slide.style.visibility = 'hidden';
+            console.log('Hiding slide', i);
         });
         
         // Then show the target slide with fade-in
         const targetSlide = slides[index];
         if (targetSlide) {
+            console.log('Showing slide', index);
             targetSlide.style.display = 'flex';
             targetSlide.style.visibility = 'visible';
+            targetSlide.style.position = 'relative';
+            targetSlide.style.left = 'auto';
+            targetSlide.style.top = 'auto';
+            targetSlide.style.transform = 'none';
             
             // Force reflow for transition
             targetSlide.offsetHeight;
             
             // Fade in
             targetSlide.style.opacity = '1';
+        } else {
+            console.error('Target slide not found:', index);
         }
         
         // Update pagination
@@ -56,7 +72,7 @@ function initSimpleMobileCarousel() {
             });
         }
         
-        console.log('Showing slide:', index);
+        console.log('Slide', index, 'should now be visible');
     }
     
     // Create pagination if needed

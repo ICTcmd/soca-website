@@ -388,6 +388,18 @@
         text-align: center !important;
         padding: 0 20px !important;
         margin-bottom: 20px !important;
+        margin-top: 10px !important;
+    }
+    
+    .hero-text-top .hero-eyebrow {
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 10px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        line-height: 1.4 !important;
+        word-wrap: break-word !important;
     }
     
     .hero-text-top .hero-title {
@@ -396,10 +408,7 @@
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         hyphens: auto !important;
-    }
-    
-    .hero-text-top .hero-eyebrow {
-        font-size: 13px;
+        margin-bottom: 10px !important;
     }
     
     .hero-text-top .hero-subtitle {
