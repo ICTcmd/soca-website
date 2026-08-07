@@ -14,20 +14,13 @@ function initializeCarousel() {
 
     // Initialize Hero Swiper Carousel
     const heroSwiper = new Swiper('.heroSwiper', {
-        // Coverflow effect for centered carousel
-        effect: 'coverflow',
+        // Default to slide effect (coverflow only on desktop via breakpoints)
+        effect: 'slide',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: 1.2,
         watchSlidesProgress: true,
         watchSlidesVisibility: true,
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 300,
-            modifier: 1,
-            slideShadows: false,
-        },
         // Pagination
         pagination: {
             el: '.swiper-pagination',
@@ -47,21 +40,16 @@ function initializeCarousel() {
         preventClicksPropagation: false,
         // Responsive breakpoints
         breakpoints: {
-            // Mobile (< 768px)
+            // Mobile (< 768px) - Use slide effect instead of coverflow
             0: {
+                effect: 'slide',
                 slidesPerView: 1.2,
                 spaceBetween: 10,
                 centeredSlides: true,
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 150,
-                    modifier: 1,
-                    slideShadows: false,
-                },
             },
-            // Tablet (>= 768px)
+            // Tablet (>= 768px) - Use coverflow
             768: {
+                effect: 'coverflow',
                 slidesPerView: 'auto',
                 spaceBetween: 30,
                 coverflowEffect: {
