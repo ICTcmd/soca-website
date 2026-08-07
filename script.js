@@ -2,15 +2,113 @@
 // SWIPER HERO CAROUSEL INITIALIZATION
 // ==========================================
 
+// Check if mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Simple mobile carousel (no Swiper)
+function initSimpleMobileCarousel() {
+    console.log('Initializing SIMPLE mobile carousel...');
+    
+    const slides = document.querySelectorAll('.swiper-slide');
+    const wrapper = document.querySelector('.swiper-wrapper');
+    const pagination = document.querySelector('.swiper-pagination');
+    
+    if (!slides.length || !wrapper) {
+        console.error('Carousel elements not found!');
+        return;
+    }
+    
+    let currentIndex = 0;
+    
+    // Show first slide
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.display = 'flex';
+                slide.style.opacity = '1';
+                slide.style.visibility = 'visible';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+        
+        // Update pagination
+        const bullets = pagination?.querySelectorAll('.swiper-pagination-bullet');
+        if (bullets) {
+            bullets.forEach((bullet, i) => {
+                if (i === index) {
+                    bullet.classList.add('swiper-pagination-bullet-active');
+                } else {
+                    bullet.classList.remove('swiper-pagination-bullet-active');
+                }
+            });
+        }
+        
+        console.log('Showing slide:', index);
+    }
+    
+    // Create pagination if needed
+    if (pagination && !pagination.children.length) {
+        slides.forEach((_, i) => {
+            const bullet = document.createElement('span');
+            bullet.className = 'swiper-pagination-bullet';
+            bullet.addEventListener('click', () => {
+                currentIndex = i;
+                showSlide(currentIndex);
+            });
+            pagination.appendChild(bullet);
+        });
+    }
+    
+    // Navigation buttons
+    const prevBtn = document.getElementById('carouselPrevExternal');
+    const nextBtn = document.getElementById('carouselNextExternal');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        });
+    }
+    
+    // Auto-play
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, 5000);
+    
+    // Show first slide
+    showSlide(0);
+    
+    console.log('Simple carousel initialized with', slides.length, 'slides');
+}
+
 // Wait for Swiper library to load with increased timeout
 function initializeCarousel() {
+    // Use simple carousel on mobile
+    if (isMobile()) {
+        console.log('Mobile detected, using simple carousel...');
+        initSimpleMobileCarousel();
+        return;
+    }
+    
+    // Desktop: Use Swiper
     if (typeof Swiper === 'undefined') {
         console.log('Swiper not loaded yet, retrying in 200ms...');
         setTimeout(initializeCarousel, 200);
         return;
     }
     
-    console.log('Swiper loaded successfully, initializing carousel...');
+    console.log('Desktop detected, Swiper loaded successfully, initializing carousel...');
 
     // Initialize Hero Swiper Carousel
     const heroSwiper = new Swiper('.heroSwiper', {
