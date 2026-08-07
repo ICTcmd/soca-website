@@ -333,23 +333,68 @@ let slideSpeed = 4000; // Default 4 seconds
 
 // Initialize slide viewer
 function initSlideViewer() {
-    updateSlideDisplay();
-    updateSlideCounter();
-    updateProgressBar();
+    console.log('=== INITIALIZING SLIDE VIEWER ===');
     
-    // Event listeners
-    document.getElementById('prevSlide').addEventListener('click', previousSlide);
-    document.getElementById('nextSlide').addEventListener('click', nextSlide);
-    document.getElementById('autoPlayToggle').addEventListener('click', toggleAutoPlay);
-    document.getElementById('slideSpeed').addEventListener('change', changeSpeed);
-    document.getElementById('thumbnailToggle').addEventListener('click', toggleThumbnailGrid);
-    document.getElementById('closeThumbnails').addEventListener('click', closeThumbnailGrid);
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', handleKeyboard);
-    
-    // Auto-play when slides come into view
-    setupAutoPlayOnScroll();
+    try {
+        updateSlideDisplay();
+        updateSlideCounter();
+        updateProgressBar();
+        
+        // Event listeners with error checking
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        
+        console.log('prevSlide button:', prevBtn);
+        console.log('nextSlide button:', nextBtn);
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                console.log('PREV CLICKED - current index:', currentSlideIndex);
+                previousSlide();
+            });
+        } else {
+            console.error('prevSlide button not found!');
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                console.log('NEXT CLICKED - current index:', currentSlideIndex);
+                nextSlide();
+            });
+        } else {
+            console.error('nextSlide button not found!');
+        }
+        
+        const autoPlayBtn = document.getElementById('autoPlayToggle');
+        if (autoPlayBtn) {
+            autoPlayBtn.addEventListener('click', toggleAutoPlay);
+        }
+        
+        const speedSelect = document.getElementById('slideSpeed');
+        if (speedSelect) {
+            speedSelect.addEventListener('change', changeSpeed);
+        }
+        
+        const thumbnailBtn = document.getElementById('thumbnailToggle');
+        if (thumbnailBtn) {
+            thumbnailBtn.addEventListener('click', toggleThumbnailGrid);
+        }
+        
+        const closeBtn = document.getElementById('closeThumbnails');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeThumbnailGrid);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', handleKeyboard);
+        
+        // Auto-play when slides come into view
+        setupAutoPlayOnScroll();
+        
+        console.log('=== SLIDE VIEWER INITIALIZED SUCCESSFULLY ===');
+    } catch (error) {
+        console.error('ERROR initializing slide viewer:', error);
+    }
 }
 
 // Setup auto-play when slides section becomes visible
@@ -439,12 +484,14 @@ function previousSlide() {
 
 // Next slide
 function nextSlide() {
+    console.log('nextSlide() called - current:', currentSlideIndex, 'total:', TOTAL_SLIDES);
     if (currentSlideIndex < TOTAL_SLIDES) {
         goToSlide(currentSlideIndex + 1);
     } else if (isAutoPlaying) {
         // Loop back to first slide when auto-playing
         goToSlide(1);
     }
+    console.log('After nextSlide - new index:', currentSlideIndex);
 }
 
 // Toggle auto play
