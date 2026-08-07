@@ -309,7 +309,7 @@
         left: 50% !important;
         top: 50% !important;
         transform: translate(-50%, -50%) !important;
-        transition: opacity 0.5s ease-in-out !important;
+        transition: opacity 0.3s ease-in-out !important;
         justify-content: center !important;
         align-items: center !important;
     }

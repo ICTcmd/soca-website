@@ -24,23 +24,25 @@ function initSimpleMobileCarousel() {
     
     // Show first slide
     function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.style.display = 'flex';
-                slide.style.opacity = '0';
-                slide.style.visibility = 'visible';
-                // Fade in animation
-                setTimeout(() => {
-                    slide.style.opacity = '1';
-                }, 10);
-            } else {
-                slide.style.opacity = '0';
-                setTimeout(() => {
-                    slide.style.display = 'none';
-                    slide.style.visibility = 'hidden';
-                }, 500); // Wait for fade out
-            }
+        // First, hide all slides immediately
+        slides.forEach((slide) => {
+            slide.style.display = 'none';
+            slide.style.opacity = '0';
+            slide.style.visibility = 'hidden';
         });
+        
+        // Then show the target slide with fade-in
+        const targetSlide = slides[index];
+        if (targetSlide) {
+            targetSlide.style.display = 'flex';
+            targetSlide.style.visibility = 'visible';
+            
+            // Force reflow for transition
+            targetSlide.offsetHeight;
+            
+            // Fade in
+            targetSlide.style.opacity = '1';
+        }
         
         // Update pagination
         const bullets = pagination?.querySelectorAll('.swiper-pagination-bullet');
