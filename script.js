@@ -2,13 +2,15 @@
 // SWIPER HERO CAROUSEL INITIALIZATION
 // ==========================================
 
-// Wait for Swiper library to load
+// Wait for Swiper library to load with increased timeout
 function initializeCarousel() {
     if (typeof Swiper === 'undefined') {
-        console.log('Swiper not loaded yet, retrying...');
-        setTimeout(initializeCarousel, 100);
+        console.log('Swiper not loaded yet, retrying in 200ms...');
+        setTimeout(initializeCarousel, 200);
         return;
     }
+    
+    console.log('Swiper loaded successfully, initializing carousel...');
 
     // Initialize Hero Swiper Carousel
     const heroSwiper = new Swiper('.heroSwiper', {
@@ -77,6 +79,8 @@ function initializeCarousel() {
         }
     });
     
+    console.log('Carousel initialized successfully!');
+    
     // External navigation buttons
     const prevBtn = document.getElementById('carouselPrevExternal');
     const nextBtn = document.getElementById('carouselNextExternal');
@@ -94,10 +98,16 @@ function initializeCarousel() {
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    initializeCarousel();
-});
+// Initialize when DOM is ready or immediately if already ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, starting carousel initialization...');
+        setTimeout(initializeCarousel, 300);
+    });
+} else {
+    console.log('DOM already loaded, starting carousel initialization...');
+    setTimeout(initializeCarousel, 300);
+}
 
 // ==========================================
 // GLIGHTBOX GALLERY INITIALIZATION
@@ -105,10 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeGallery() {
     if (typeof GLightbox === 'undefined') {
-        console.log('GLightbox not loaded yet, retrying...');
-        setTimeout(initializeGallery, 100);
+        console.log('GLightbox not loaded yet, retrying in 200ms...');
+        setTimeout(initializeGallery, 200);
         return;
     }
+    
+    console.log('GLightbox loaded successfully, initializing gallery...');
     
     // Initialize GLightbox for gallery
     const lightbox = GLightbox({
@@ -123,12 +135,18 @@ function initializeGallery() {
         dragAutoSnap: true,
         preload: true
     });
+    
+    console.log('Gallery initialized successfully!');
 }
 
 // Initialize gallery
-document.addEventListener('DOMContentLoaded', function() {
-    initializeGallery();
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initializeGallery, 300);
+    });
+} else {
+    setTimeout(initializeGallery, 300);
+}
 
 // Navigate to specific carousel image
 function goToCarouselImage(index) {
