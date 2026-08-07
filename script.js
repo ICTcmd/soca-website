@@ -43,13 +43,17 @@ function initSimpleMobileCarousel() {
         const targetSlide = slides[index];
         if (targetSlide) {
             console.log('Showing slide', index);
-            targetSlide.style.display = 'flex';
-            targetSlide.style.visibility = 'visible';
-            targetSlide.style.opacity = '1';
-            targetSlide.style.position = 'relative';
-            targetSlide.style.left = 'auto';
-            targetSlide.style.top = 'auto';
-            targetSlide.style.transform = 'none';
+            targetSlide.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; left: auto !important; top: auto !important; transform: none !important;';
+            
+            // Also force the image and frame to be opaque
+            const slideImage = targetSlide.querySelector('.slide-image');
+            const slideFrame = targetSlide.querySelector('.slide-frame');
+            if (slideImage) {
+                slideImage.style.opacity = '1';
+            }
+            if (slideFrame) {
+                slideFrame.style.opacity = '1';
+            }
         } else {
             console.error('Target slide not found:', index);
         }
