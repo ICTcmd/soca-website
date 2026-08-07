@@ -251,7 +251,7 @@
     .hero-portrait {
         display: flex !important;
         margin: 20px auto 30px auto;
-        min-height: 280px !important;
+        min-height: 300px !important;
         padding: 0 10px;
         overflow: visible !important;
     }
@@ -260,38 +260,43 @@
     .swiper-carousel-container {
         padding: 20px 0;
         gap: 0;
-        min-height: 280px !important;
+        min-height: 300px !important;
         display: flex !important;
+        overflow: visible !important;
     }
     
     /* Mobile: Swiper must be visible */
     .heroSwiper {
         padding: 40px 0 80px 0;
-        min-height: 280px !important;
+        min-height: 300px !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        overflow: visible !important;
     }
     
     /* Mobile: Wrapper must be visible */
     .swiper-wrapper {
-        min-height: 250px !important;
+        min-height: 260px !important;
         display: flex !important;
     }
     
     /* Mobile: Adjust swiper slide size for peek effect */
     .swiper-slide {
         width: 85vw !important;
+        max-width: 85vw !important;
         height: auto !important;
-        min-height: 230px !important;
+        min-height: 250px !important;
         display: flex !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .slide-frame {
         aspect-ratio: 16 / 9;
         border-width: 8px;
-        min-height: 230px !important;
+        min-height: 250px !important;
+        width: 100% !important;
         display: block !important;
         background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98)) !important;
     }
@@ -300,21 +305,29 @@
     .slide-image {
         width: 100% !important;
         height: 100% !important;
-        min-height: 230px !important;
+        min-height: 250px !important;
         object-fit: cover !important;
         object-position: center !important;
         display: block !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
-    /* Mobile: Ensure center slide dominates */
+    /* Mobile: Inactive slides should still be visible but dimmed */
+    .swiper-slide:not(.swiper-slide-active) {
+        opacity: 0.5 !important;
+        transform: scale(0.85) !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    
+    /* Mobile: Ensure center slide is fully visible */
     .swiper-slide-active {
         transform: scale(1) !important;
-    }
-    
-    .swiper-slide:not(.swiper-slide-active) {
-        opacity: 0.4 !important;
-        transform: scale(0.85) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        z-index: 10 !important;
     }
     
     /* Mobile: Position arrows inside */
@@ -322,6 +335,7 @@
         width: 50px;
         height: 50px;
         top: 50%;
+        display: flex !important;
     }
     
     .carousel-nav-external.left {
@@ -341,6 +355,7 @@
     .swiper-pagination {
         bottom: 10px !important;
         display: flex !important;
+        visibility: visible !important;
     }
     
     .hero-text-top .hero-title {

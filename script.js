@@ -19,6 +19,8 @@ function initializeCarousel() {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
         coverflowEffect: {
             rotate: 0,
             stretch: 0,
@@ -40,12 +42,16 @@ function initializeCarousel() {
         loop: true,
         // Speed
         speed: 800,
+        // Prevent slides from disappearing
+        preventClicks: false,
+        preventClicksPropagation: false,
         // Responsive breakpoints
         breakpoints: {
             // Mobile (< 768px)
             0: {
                 slidesPerView: 1.2,
                 spaceBetween: 10,
+                centeredSlides: true,
                 coverflowEffect: {
                     rotate: 0,
                     stretch: 0,
@@ -68,6 +74,13 @@ function initializeCarousel() {
             },
         },
         on: {
+            init: function() {
+                console.log('Swiper initialized with', this.slides.length, 'slides');
+                console.log('Active index:', this.activeIndex);
+            },
+            slideChange: function() {
+                console.log('Slide changed to index:', this.activeIndex);
+            },
             click: function (swiper, event) {
                 // Allow clicking on side slides to navigate
                 const clickedSlide = event.target.closest('.swiper-slide');
