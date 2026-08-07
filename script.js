@@ -35,27 +35,21 @@ function initSimpleMobileCarousel() {
         // First, hide all slides immediately
         slides.forEach((slide, i) => {
             slide.style.display = 'none';
-            slide.style.opacity = '0';
             slide.style.visibility = 'hidden';
             console.log('Hiding slide', i);
         });
         
-        // Then show the target slide with fade-in
+        // Then show the target slide INSTANTLY (no fade)
         const targetSlide = slides[index];
         if (targetSlide) {
             console.log('Showing slide', index);
             targetSlide.style.display = 'flex';
             targetSlide.style.visibility = 'visible';
+            targetSlide.style.opacity = '1';
             targetSlide.style.position = 'relative';
             targetSlide.style.left = 'auto';
             targetSlide.style.top = 'auto';
             targetSlide.style.transform = 'none';
-            
-            // Force reflow for transition
-            targetSlide.offsetHeight;
-            
-            // Fade in
-            targetSlide.style.opacity = '1';
         } else {
             console.error('Target slide not found:', index);
         }
