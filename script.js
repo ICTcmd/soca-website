@@ -649,7 +649,7 @@ function updateActiveThumbnail() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    initCarousel();
+    initializeCarousel();
     initSlideViewer();
 });
 
