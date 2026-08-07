@@ -47,6 +47,7 @@
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
     cursor: pointer;
     min-height: 250px;
+    flex-shrink: 0;
 }
 
 /* Inactive slides (side slides) */
@@ -279,12 +280,14 @@
     .swiper-wrapper {
         min-height: 260px !important;
         display: flex !important;
+        align-items: center !important;
     }
     
-    /* Mobile: Adjust swiper slide size for peek effect */
+    /* Mobile: CRITICAL - Set explicit width! */
     .swiper-slide {
         width: 85vw !important;
         max-width: 85vw !important;
+        flex-shrink: 0 !important;
         height: auto !important;
         min-height: 250px !important;
         display: flex !important;
@@ -299,6 +302,7 @@
         width: 100% !important;
         display: block !important;
         background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98)) !important;
+        flex-shrink: 0 !important;
     }
     
     /* Ensure images display properly on mobile */
