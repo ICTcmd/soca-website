@@ -251,6 +251,8 @@
     /* Mobile: Force visibility and sizing */
     .hero-portrait {
         display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         margin: 20px auto 30px auto;
         min-height: 300px !important;
         padding: 0 10px;
@@ -263,34 +265,40 @@
         gap: 0;
         min-height: 300px !important;
         display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         overflow: hidden !important;
+        width: 100% !important;
     }
     
     /* Mobile: Swiper must be visible */
     .heroSwiper {
         padding: 40px 0 80px 0;
         min-height: 300px !important;
-        display: block !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         visibility: visible !important;
         opacity: 1 !important;
         overflow: hidden !important;
         width: 100% !important;
     }
     
-    /* Mobile: Wrapper - SINGLE slide visible */
+    /* Mobile: Wrapper - SINGLE slide visible, centered */
     .swiper-wrapper {
         min-height: 260px !important;
         display: flex !important;
+        justify-content: center !important;
         align-items: center !important;
         position: relative !important;
         width: 100% !important;
         overflow: hidden !important;
     }
     
-    /* Mobile: CRITICAL - Only one slide visible, others hidden */
+    /* Mobile: CRITICAL - Only one slide visible, centered */
     .swiper-slide {
         width: 90% !important;
-        max-width: 90% !important;
+        max-width: 400px !important;
         flex-shrink: 0 !important;
         height: auto !important;
         min-height: 250px !important;
@@ -299,8 +307,11 @@
         opacity: 0 !important;
         position: absolute !important;
         left: 50% !important;
-        transform: translateX(-50%) !important;
-        transition: opacity 0.5s ease !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: opacity 0.5s ease-in-out !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
     
     /* Mobile: Active slide is visible and centered */
@@ -308,9 +319,11 @@
     .swiper-slide[style*="display: flex"] {
         display: flex !important;
         visibility: visible !important;
-        opacity: 1 !important;
         position: relative !important;
         margin: 0 auto !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
     }
     
     .slide-frame {
@@ -321,6 +334,7 @@
         display: block !important;
         background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98)) !important;
         flex-shrink: 0 !important;
+        margin: 0 auto !important;
     }
     
     /* Ensure images display properly on mobile */
@@ -361,17 +375,36 @@
     .swiper-pagination {
         bottom: 10px !important;
         display: flex !important;
+        justify-content: center !important;
         visibility: visible !important;
         position: absolute !important;
         z-index: 100 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    /* Mobile: Fix text alignment and prevent cutoff */
+    .hero-text-top {
+        text-align: center !important;
+        padding: 0 20px !important;
+        margin-bottom: 20px !important;
     }
     
     .hero-text-top .hero-title {
-        font-size: 32px;
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
     }
     
     .hero-text-top .hero-eyebrow {
         font-size: 13px;
+    }
+    
+    .hero-text-top .hero-subtitle {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
     }
     
     .hero-actions {

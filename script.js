@@ -27,10 +27,18 @@ function initSimpleMobileCarousel() {
         slides.forEach((slide, i) => {
             if (i === index) {
                 slide.style.display = 'flex';
-                slide.style.opacity = '1';
+                slide.style.opacity = '0';
                 slide.style.visibility = 'visible';
+                // Fade in animation
+                setTimeout(() => {
+                    slide.style.opacity = '1';
+                }, 10);
             } else {
-                slide.style.display = 'none';
+                slide.style.opacity = '0';
+                setTimeout(() => {
+                    slide.style.display = 'none';
+                    slide.style.visibility = 'hidden';
+                }, 500); // Wait for fade out
             }
         });
         
