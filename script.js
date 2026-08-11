@@ -140,7 +140,7 @@ function initializeCarousel() {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 3,
+        slidesPerView: 'auto',
         spaceBetween: 30,
         // Pagination
         pagination: {
@@ -154,16 +154,20 @@ function initializeCarousel() {
         },
         // Loop
         loop: true,
-        // Speed - slower for smoother transitions
+        // Speed
         speed: 600,
         // Coverflow settings
         coverflowEffect: {
             rotate: 0,
             stretch: 0,
-            depth: 250,
+            depth: 300,
             modifier: 1,
             slideShadows: false,
         },
+        // Add these to prevent jumping
+        observer: true,
+        observeParents: true,
+        watchOverflow: true,
         on: {
             init: function() {
                 console.log('Swiper initialized with', this.slides.length, 'slides');
