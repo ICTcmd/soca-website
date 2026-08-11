@@ -231,21 +231,23 @@
 @media (max-width: 480px) {
     /* Container */
     .container {
-        padding: 0 8px;
+        padding: 0 5px;
+        max-width: 100%;
     }
     
     /* Navigation - Optimized for mobile */
     .navbar {
         padding: 6px 0;
+        transition: none;
     }
     
     .nav-content {
         padding: 6px 8px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
-        gap: 4px;
+        gap: 15px;
     }
     
     .city-logo {
@@ -253,16 +255,17 @@
         width: auto;
         margin-right: 0;
         flex-shrink: 0;
+        transition: none;
     }
     
     .nav-links {
         display: flex;
-        gap: 4px;
-        font-size: 9px;
+        gap: 10px;
+        font-size: 10px;
         font-weight: 600;
         flex-shrink: 0;
-        margin-left: auto;
-        padding-left: 4px;
+        margin-left: 0;
+        padding-left: 0;
     }
     
     .nav-links li {
@@ -272,11 +275,12 @@
     }
     
     .nav-links a {
-        letter-spacing: -0.2px;
+        letter-spacing: 0px;
         white-space: nowrap;
-        padding: 4px 2px;
+        padding: 4px 0;
         display: block;
-        line-height: 1;
+        line-height: 1.2;
+        transition: none;
     }
     
     /* Thumbnail Grid for Presentation Slides */
