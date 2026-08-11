@@ -23,6 +23,39 @@
         font-size: 11px;
     }
     
+    /* Thumbnail Grid for Presentation Slides */
+    .thumbnail-grid {
+        padding: 25px 15px;
+        border-radius: 16px;
+    }
+    
+    .thumbnail-grid-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+    
+    .thumbnail-grid-header h3 {
+        font-size: 22px;
+    }
+    
+    .thumbnail-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-height: 70vh;
+    }
+    
+    .thumbnail-item {
+        aspect-ratio: 16 / 9;
+        border-width: 2px;
+    }
+    
+    .thumbnail-number {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    
     /* Hero Section */
     .hero-section {
         min-height: auto;
@@ -210,6 +243,33 @@
     
     .nav-links a {
         letter-spacing: 0.2px;
+    }
+    
+    /* Thumbnail Grid for Presentation Slides */
+    .thumbnail-grid {
+        padding: 20px 10px;
+        border-radius: 12px;
+    }
+    
+    .thumbnail-grid-header h3 {
+        font-size: 20px;
+    }
+    
+    .thumbnail-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-height: 65vh;
+    }
+    
+    .thumbnail-item {
+        border-width: 2px;
+        border-radius: 6px;
+    }
+    
+    .thumbnail-number {
+        font-size: 9px;
+        padding: 2px 5px;
+        border-radius: 3px;
     }
     
     /* Hero Section */
