@@ -19,8 +19,8 @@
     }
     
     .nav-links {
-        gap: 15px;
-        font-size: 12px;
+        gap: 18px;
+        font-size: 11px;
     }
     
     /* Hero Section */
@@ -204,12 +204,12 @@
     }
     
     .nav-links {
-        gap: 10px;
-        font-size: 11px;
+        gap: 12px;
+        font-size: 10px;
     }
     
     .nav-links a {
-        letter-spacing: 0.3px;
+        letter-spacing: 0.2px;
     }
     
     /* Hero Section */
