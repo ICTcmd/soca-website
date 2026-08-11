@@ -54,17 +54,17 @@
     background: #ffffff;
 }
 
-/* Hover State - Premium Effect */
+/* Hover State - Disabled for cleaner UX */
 .gallery-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(10, 30, 61, 0.2);
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .gallery-item:hover .gallery-image {
-    transform: scale(1.08);
+    transform: none;
 }
 
-/* Dark Gradient Overlay */
+/* Dark Gradient Overlay - Hidden */
 .gallery-overlay {
     position: absolute;
     top: 0;
@@ -78,27 +78,30 @@
         rgba(10, 30, 61, 0.8) 100%
     );
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: none;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
+    pointer-events: none;
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
+    opacity: 0;
 }
 
-/* Zoom Icon */
+/* Zoom Icon - Hidden */
 .gallery-icon {
     color: white;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
-    transform: scale(0.8);
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform: scale(0);
+    transition: none;
+    opacity: 0;
 }
 
 .gallery-item:hover .gallery-icon {
-    transform: scale(1);
+    transform: scale(0);
+    opacity: 0;
 }
 
 /* GLightbox Custom Styling */
@@ -220,17 +223,18 @@
     }
 }
 
+/* Gallery Item Fade In Animation - Disabled */
 .gallery-item {
-    animation: galleryFadeIn 0.6s ease-out backwards;
+    animation: none;
 }
 
-.gallery-item:nth-child(1) { animation-delay: 0.05s; }
-.gallery-item:nth-child(2) { animation-delay: 0.1s; }
-.gallery-item:nth-child(3) { animation-delay: 0.15s; }
-.gallery-item:nth-child(4) { animation-delay: 0.2s; }
-.gallery-item:nth-child(5) { animation-delay: 0.25s; }
-.gallery-item:nth-child(6) { animation-delay: 0.3s; }
-.gallery-item:nth-child(7) { animation-delay: 0.35s; }
-.gallery-item:nth-child(8) { animation-delay: 0.4s; }
-.gallery-item:nth-child(9) { animation-delay: 0.45s; }
-.gallery-item:nth-child(10) { animation-delay: 0.5s; }
+.gallery-item:nth-child(1) { animation-delay: 0s; }
+.gallery-item:nth-child(2) { animation-delay: 0s; }
+.gallery-item:nth-child(3) { animation-delay: 0s; }
+.gallery-item:nth-child(4) { animation-delay: 0s; }
+.gallery-item:nth-child(5) { animation-delay: 0s; }
+.gallery-item:nth-child(6) { animation-delay: 0s; }
+.gallery-item:nth-child(7) { animation-delay: 0s; }
+.gallery-item:nth-child(8) { animation-delay: 0s; }
+.gallery-item:nth-child(9) { animation-delay: 0s; }
+.gallery-item:nth-child(10) { animation-delay: 0s; }
