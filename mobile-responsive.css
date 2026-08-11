@@ -6,21 +6,33 @@
 @media (max-width: 768px) {
     /* Navigation */
     .navbar {
-        padding: 12px 0;
+        padding: 10px 0;
     }
     
     .nav-content {
-        padding: 12px 20px;
+        padding: 10px 15px;
+        gap: 10px;
     }
     
     .city-logo {
-        height: 45px;
-        margin-right: 25px;
+        height: 40px;
+        margin-right: 15px;
+        flex-shrink: 0;
     }
     
     .nav-links {
-        gap: 18px;
-        font-size: 11px;
+        gap: 15px;
+        font-size: 10px;
+        flex-shrink: 1;
+        justify-content: flex-end;
+    }
+    
+    .nav-links li {
+        flex-shrink: 1;
+    }
+    
+    .nav-links a {
+        white-space: nowrap;
     }
     
     /* Thumbnail Grid for Presentation Slides */
@@ -219,30 +231,43 @@
 @media (max-width: 480px) {
     /* Container */
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     /* Navigation */
     .navbar {
-        padding: 10px 0;
+        padding: 8px 0;
     }
     
     .nav-content {
-        padding: 10px 15px;
+        padding: 8px 10px;
+        gap: 8px;
     }
     
     .city-logo {
-        height: 40px;
-        margin-right: 20px;
+        height: 35px;
+        margin-right: 8px;
+        flex-shrink: 0;
     }
     
     .nav-links {
-        gap: 12px;
-        font-size: 10px;
+        gap: 8px;
+        font-size: 9px;
+        flex-wrap: nowrap;
+        flex-shrink: 1;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    
+    .nav-links li {
+        flex-shrink: 1;
+        min-width: 0;
     }
     
     .nav-links a {
-        letter-spacing: 0.2px;
+        letter-spacing: 0.1px;
+        white-space: nowrap;
+        padding: 0 2px;
     }
     
     /* Thumbnail Grid for Presentation Slides */
