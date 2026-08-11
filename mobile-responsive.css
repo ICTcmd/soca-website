@@ -231,45 +231,52 @@
 @media (max-width: 480px) {
     /* Container */
     .container {
-        padding: 0 10px;
+        padding: 0 8px;
     }
     
-    /* Navigation */
+    /* Navigation - Optimized for mobile */
     .navbar {
-        padding: 8px 0;
+        padding: 6px 0;
     }
     
     .nav-content {
-        padding: 8px 10px;
+        padding: 6px 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        gap: 4px;
     }
     
     .city-logo {
-        height: 32px;
+        height: 28px;
+        width: auto;
         margin-right: 0;
         flex-shrink: 0;
     }
     
     .nav-links {
         display: flex;
-        gap: 6px;
-        font-size: 8.5px;
+        gap: 4px;
+        font-size: 9px;
+        font-weight: 600;
         flex-shrink: 0;
         margin-left: auto;
+        padding-left: 4px;
     }
     
     .nav-links li {
         flex-shrink: 0;
+        margin: 0;
+        padding: 0;
     }
     
     .nav-links a {
-        letter-spacing: 0px;
+        letter-spacing: -0.2px;
         white-space: nowrap;
-        padding: 4px 3px;
+        padding: 4px 2px;
         display: block;
+        line-height: 1;
     }
     
     /* Thumbnail Grid for Presentation Slides */
