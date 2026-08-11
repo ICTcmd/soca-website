@@ -137,13 +137,11 @@ function initializeCarousel() {
 
     // Initialize Hero Swiper Carousel
     const heroSwiper = new Swiper('.heroSwiper', {
-        // Default to slide effect (coverflow only on desktop via breakpoints)
-        effect: 'slide',
+        effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 1.2,
-        watchSlidesProgress: true,
-        watchSlidesVisibility: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
         // Pagination
         pagination: {
             el: '.swiper-pagination',
@@ -156,50 +154,23 @@ function initializeCarousel() {
         },
         // Loop
         loop: true,
-        // Speed
-        speed: 800,
-        // Prevent slides from disappearing
-        preventClicks: false,
-        preventClicksPropagation: false,
-        // Responsive breakpoints
-        breakpoints: {
-            // Mobile (< 768px) - Use slide effect instead of coverflow
-            0: {
-                effect: 'slide',
-                slidesPerView: 1.2,
-                spaceBetween: 10,
-                centeredSlides: true,
-            },
-            // Tablet (>= 768px) - Use coverflow
-            768: {
-                effect: 'coverflow',
-                slidesPerView: 'auto',
-                spaceBetween: 30,
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 300,
-                    modifier: 1,
-                    slideShadows: false,
-                },
-            },
+        // Speed - slower for smoother transitions
+        speed: 600,
+        // Coverflow settings
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 250,
+            modifier: 1,
+            slideShadows: false,
         },
         on: {
             init: function() {
                 console.log('Swiper initialized with', this.slides.length, 'slides');
-                console.log('Active index:', this.activeIndex);
             },
             slideChange: function() {
                 console.log('Slide changed to index:', this.activeIndex);
             },
-            click: function (swiper, event) {
-                // Allow clicking on side slides to navigate
-                const clickedSlide = event.target.closest('.swiper-slide');
-                if (clickedSlide && !clickedSlide.classList.contains('swiper-slide-active')) {
-                    const clickedIndex = parseInt(clickedSlide.getAttribute('data-swiper-slide-index'));
-                    swiper.slideToLoop(clickedIndex);
-                }
-            }
         }
     });
     
