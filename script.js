@@ -817,14 +817,6 @@ function setupVideoAutoPlay() {
     
     if (!video) return;
     
-    // Disable autoplay on mobile devices to allow user control
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    
-    if (isMobile) {
-        // On mobile, don't autoplay - let user control the video
-        return;
-    }
-    
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
