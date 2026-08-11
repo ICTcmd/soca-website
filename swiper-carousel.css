@@ -395,19 +395,20 @@
         text-align: center !important;
         padding: 0 20px !important;
         margin-bottom: 20px !important;
-        margin-top: 50px !important;
+        margin-top: 80px !important;
     }
     
     .hero-text-top .hero-eyebrow {
-        font-size: 10px !important;
-        letter-spacing: 1.2px !important;
+        font-size: 12px !important;
+        letter-spacing: 1.5px !important;
         margin-bottom: 15px !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        line-height: 1.5 !important;
+        line-height: 1.6 !important;
         word-wrap: break-word !important;
         padding: 0 10px !important;
+        color: var(--gold-primary) !important;
     }
     
     .hero-text-top .hero-title {
