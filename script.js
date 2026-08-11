@@ -152,8 +152,8 @@ function initializeCarousel() {
             delay: 5000,
             disableOnInteraction: false,
         },
-        // Loop
-        loop: true,
+        // Loop disabled to prevent jumping
+        loop: false,
         // Speed
         speed: 600,
         // Coverflow settings
@@ -164,7 +164,7 @@ function initializeCarousel() {
             modifier: 1,
             slideShadows: false,
         },
-        // Add these to prevent jumping
+        // Prevent jumping
         observer: true,
         observeParents: true,
         watchOverflow: true,
@@ -175,6 +175,12 @@ function initializeCarousel() {
             slideChange: function() {
                 console.log('Slide changed to index:', this.activeIndex);
             },
+            // Loop back to start when reaching the end
+            reachEnd: function() {
+                setTimeout(() => {
+                    this.slideTo(0, 600);
+                }, 5000);
+            }
         }
     });
     
@@ -646,14 +652,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Parallax effect for hero background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroBackground = document.querySelector('.hero-background');
-    if (heroBackground) {
-        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
+// Parallax effect for hero background - DISABLED to prevent text clipping
+// window.addEventListener('scroll', () => {
+//     const scrolled = window.pageYOffset;
+//     const heroBackground = document.querySelector('.hero-background');
+//     if (heroBackground) {
+//         heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+//     }
+// });
 
 // Intersection Observer for scroll animations
 const observerOptions = {
