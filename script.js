@@ -7,114 +7,69 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Simple mobile carousel (no Swiper)
+// Simple mobile carousel (uses Swiper on mobile too for consistency)
 function initSimpleMobileCarousel() {
-    console.log('Initializing SIMPLE mobile carousel...');
+    console.log('Initializing mobile carousel with Swiper...');
     
-    // CRITICAL: Only select slides within .heroSwiper to avoid conflict with presentation slides
-    const slides = document.querySelectorAll('.heroSwiper .swiper-slide');
-    const wrapper = document.querySelector('.heroSwiper .swiper-wrapper');
-    const pagination = document.querySelector('.heroSwiper .swiper-pagination');
-    
-    if (!slides.length || !wrapper) {
-        console.error('Carousel elements not found!');
+    // Check if Swiper is available
+    if (typeof Swiper === 'undefined') {
+        console.error('Swiper not loaded for mobile carousel');
         return;
     }
     
-    let currentIndex = 0;
-    
-    // Show first slide
-    function showSlide(index) {
-        console.log('showSlide called with index:', index, 'Total slides:', slides.length);
+    // Initialize Swiper for mobile with simpler settings
+    const heroSwiper = new Swiper('.heroSwiper', {
+        effect: 'slide',
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 20,
         
-        // Ensure index is valid
-        if (index < 0 || index >= slides.length) {
-            console.error('Invalid slide index:', index);
-            return;
-        }
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
         
-        // First, hide all slides immediately
-        slides.forEach((slide, i) => {
-            slide.style.display = 'none';
-            slide.style.visibility = 'hidden';
-            console.log('Hiding slide', i);
-        });
+        // Auto-play
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
         
-        // Then show the target slide INSTANTLY (no fade)
-        const targetSlide = slides[index];
-        if (targetSlide) {
-            console.log('Showing slide', index);
-            targetSlide.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: relative !important; left: auto !important; top: auto !important; transform: none !important;';
-            
-            // Also force the image and frame to be opaque
-            const slideImage = targetSlide.querySelector('.slide-image');
-            const slideFrame = targetSlide.querySelector('.slide-frame');
-            if (slideImage) {
-                slideImage.style.opacity = '1';
+        // Loop for continuous scrolling
+        loop: true,
+        
+        // Speed
+        speed: 600,
+        
+        // Touch settings
+        touchRatio: 1,
+        touchAngle: 45,
+        
+        on: {
+            init: function() {
+                console.log('Mobile Swiper initialized with', this.slides.length, 'slides');
             }
-            if (slideFrame) {
-                slideFrame.style.opacity = '1';
-            }
-        } else {
-            console.error('Target slide not found:', index);
         }
-        
-        // Update pagination
-        const bullets = pagination?.querySelectorAll('.swiper-pagination-bullet');
-        if (bullets) {
-            bullets.forEach((bullet, i) => {
-                if (i === index) {
-                    bullet.classList.add('swiper-pagination-bullet-active');
-                } else {
-                    bullet.classList.remove('swiper-pagination-bullet-active');
-                }
-            });
-        }
-        
-        console.log('Slide', index, 'should now be visible');
-    }
+    });
     
-    // Create pagination if needed
-    if (pagination && !pagination.children.length) {
-        slides.forEach((_, i) => {
-            const bullet = document.createElement('span');
-            bullet.className = 'swiper-pagination-bullet';
-            bullet.addEventListener('click', () => {
-                currentIndex = i;
-                showSlide(currentIndex);
-            });
-            pagination.appendChild(bullet);
-        });
-    }
-    
-    // Navigation buttons
+    // External navigation buttons
     const prevBtn = document.getElementById('carouselPrevExternal');
     const nextBtn = document.getElementById('carouselNextExternal');
     
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
+            heroSwiper.slidePrev();
         });
     }
     
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
+            heroSwiper.slideNext();
         });
     }
     
-    // Auto-play
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }, 5000);
-    
-    // Show first slide
-    showSlide(0);
-    
-    console.log('Simple carousel initialized with', slides.length, 'slides');
+    console.log('Mobile carousel initialized successfully!');
 }
 
 // Wait for Swiper library to load with increased timeout

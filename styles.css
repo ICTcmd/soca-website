@@ -1072,13 +1072,15 @@ body {
     }
     
     .slide-nav {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
     }
     
     .slide-nav svg {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
     }
     
     .slide-display {
@@ -1091,13 +1093,15 @@ body {
     }
     
     .control-btn {
-        padding: 10px 16px;
+        padding: 12px 18px;
         font-size: 14px;
+        min-height: 48px;
+        min-width: 48px;
     }
     
     .control-btn svg {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
     }
     
     .thumbnail-container {
