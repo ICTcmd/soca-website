@@ -6,14 +6,15 @@
 @media (max-width: 768px) {
     /* Navigation */
     .navbar {
-        padding: 10px 0;
+        padding: 12px 0;
     }
     
     .nav-content {
-        padding: 10px 15px;
+        padding: 8px 15px;
         gap: 15px;
         justify-content: space-between;
         position: relative;
+        min-height: 50px;
     }
     
     .nav-brand {
@@ -25,9 +26,11 @@
     }
     
     .city-logo {
-        height: 50px;
+        height: 48px;
+        width: auto;
         margin-right: 0;
         flex-shrink: 0;
+        object-fit: contain;
     }
     
     .city-name {
@@ -298,17 +301,18 @@
     
     /* Navigation - Optimized for mobile */
     .navbar {
-        padding: 6px 0;
+        padding: 10px 0;
         transition: none;
     }
     
     .nav-content {
-        padding: 6px 8px;
+        padding: 5px 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         gap: 8px;
+        min-height: 44px;
     }
     
     .nav-brand {
@@ -320,11 +324,12 @@
     }
     
     .city-logo {
-        height: 45px;
+        height: 42px;
         width: auto;
         margin-right: 0;
         flex-shrink: 0;
         transition: none;
+        object-fit: contain;
     }
     
     .city-name {
