@@ -254,84 +254,118 @@
 }
 
 @media (max-width: 768px) {
-    /* Mobile: Simplified carousel approach */
+    /* Mobile: Force visibility and sizing */
     .hero-portrait {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         margin: 20px auto 30px auto;
-        min-height: 280px !important;
+        min-height: 300px !important;
         padding: 0 10px;
         overflow: hidden !important;
+        opacity: 1 !important;
     }
     
-    /* Mobile: Swiper container centered */
+    /* Mobile: Adjust swiper container */
     .swiper-carousel-container {
         padding: 20px 0;
         gap: 0;
-        min-height: 280px !important;
+        min-height: 300px !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        overflow: visible !important;
+        overflow: hidden !important;
         width: 100% !important;
+        opacity: 1 !important;
     }
     
-    /* Mobile: Swiper wrapper */
+    /* Mobile: Swiper must be visible */
     .heroSwiper {
-        padding: 30px 0 70px 0;
-        min-height: 280px !important;
-        width: 100% !important;
-        overflow: visible !important;
-    }
-    
-    /* Mobile: All slides stack in center, only active is shown */
-    .swiper-wrapper {
-        min-height: 240px !important;
+        padding: 40px 0 80px 0;
+        min-height: 300px !important;
+        display: flex !important;
+        justify-content: center !important;
         align-items: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        overflow: hidden !important;
+        width: 100% !important;
     }
     
-    /* Mobile: Slide sizing */
+    /* Mobile: Wrapper - SINGLE slide visible, centered */
+    .swiper-wrapper {
+        min-height: 260px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        opacity: 1 !important;
+    }
+    
+    /* Mobile: CRITICAL - Only one slide visible, centered */
     .swiper-slide {
         width: 90% !important;
-        max-width: 420px !important;
+        max-width: 400px !important;
+        flex-shrink: 0 !important;
         height: auto !important;
-        min-height: 220px !important;
-        display: flex !important;
+        min-height: 250px !important;
+        display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
         justify-content: center !important;
         align-items: center !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition: opacity 0.4s ease, visibility 0.4s ease !important;
     }
     
-    /* Mobile: Only active slide is visible */
-    .heroSwiper .swiper-slide-active {
-        opacity: 1 !important;
+    /* Mobile: Active slide is visible and centered */
+    .heroSwiper .swiper-slide.active,
+    .heroSwiper .swiper-slide[style*="display: flex"] {
+        display: flex !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        margin: 0 auto !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
     }
     
-    /* Mobile: Frame sizing */
+    /* Force full opacity on all carousel elements */
     .heroSwiper .slide-frame {
         aspect-ratio: 16 / 9;
-        border-width: 6px;
-        min-height: 220px !important;
+        border-width: 8px;
+        min-height: 250px !important;
         width: 100% !important;
+        display: block !important;
+        background: linear-gradient(135deg, rgba(26, 58, 92, 0.95), rgba(10, 30, 61, 0.98)) !important;
+        flex-shrink: 0 !important;
+        margin: 0 auto !important;
+        opacity: 1 !important;
+        filter: brightness(1) !important;
     }
     
-    /* Mobile: Image display */
+    /* Ensure images display at FULL OPACITY on mobile - no transparency! */
     .heroSwiper .slide-image {
         width: 100% !important;
         height: 100% !important;
-        min-height: 220px !important;
+        min-height: 250px !important;
         object-fit: cover !important;
         object-position: center !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        filter: brightness(1) !important;
+        background: none !important;
     }
     
-    /* Mobile: Navigation arrows inside */
+    /* Mobile: Position arrows inside and visible */
     .carousel-nav-external {
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
         top: 50%;
         display: flex !important;
         z-index: 100 !important;
@@ -350,15 +384,19 @@
         height: 20px;
     }
     
-    /* Mobile: Pagination */
+    /* Mobile: Adjust pagination position */
     .swiper-pagination {
         bottom: 10px !important;
         display: flex !important;
         justify-content: center !important;
+        visibility: visible !important;
+        position: absolute !important;
         z-index: 100 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
-    /* Mobile: Hero text improvements */
+    /* Mobile: Fix text alignment and prevent cutoff */
     .hero-text-top {
         text-align: center !important;
         padding: 0 20px !important;
@@ -367,25 +405,29 @@
     }
     
     .hero-text-top .hero-eyebrow {
-        font-size: 13px !important;
-        letter-spacing: 2px !important;
-        margin-bottom: 12px !important;
-        line-height: 1.5 !important;
+        font-size: 12px !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        line-height: 1.6 !important;
+        word-wrap: break-word !important;
         padding: 0 10px !important;
+        color: var(--gold-primary) !important;
     }
     
     .hero-text-top .hero-title {
-        font-size: clamp(24px, 6vw, 32px) !important;
-        line-height: 1.25 !important;
+        font-size: 28px !important;
+        line-height: 1.2 !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
+        hyphens: auto !important;
         margin-bottom: 10px !important;
-        /* Prevent awkward hyphenation of Mayor's name */
-        hyphens: manual !important;
     }
     
     .hero-text-top .hero-subtitle {
-        font-size: clamp(14px, 3.5vw, 16px) !important;
+        font-size: 15px !important;
         line-height: 1.4 !important;
     }
     
@@ -395,50 +437,40 @@
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
-        gap: 12px;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    /* Extra small phones: More compact carousel */
+    /* Extra small phones: Even more compact */
     .hero-portrait {
-        min-height: 240px !important;
+        min-height: 260px !important;
     }
     
     .swiper-carousel-container {
-        min-height: 240px !important;
+        min-height: 260px !important;
     }
     
     .heroSwiper {
-        min-height: 240px !important;
-        padding: 25px 0 65px 0;
+        min-height: 260px !important;
     }
     
     .swiper-slide {
-        width: 92vw !important;
-        min-height: 190px !important;
+        width: 90vw !important;
+        min-height: 210px !important;
     }
     
     .slide-frame {
-        border-width: 5px;
-        min-height: 190px !important;
+        border-width: 6px;
+        min-height: 210px !important;
     }
     
     .slide-image {
-        min-height: 190px !important;
+        min-height: 210px !important;
     }
     
     .carousel-nav-external {
-        width: 44px;
-        height: 44px;
+        width: 45px;
+        height: 45px;
     }
     
     .carousel-nav-external svg {
@@ -447,11 +479,7 @@
     }
     
     .hero-text-top .hero-title {
-        font-size: clamp(22px, 5.5vw, 28px) !important;
-    }
-    
-    .hero-text-top .hero-subtitle {
-        font-size: clamp(13px, 3vw, 15px) !important;
+        font-size: 26px;
     }
 }
 
