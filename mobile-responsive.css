@@ -13,7 +13,6 @@
         padding: 10px 15px;
         gap: 15px;
         justify-content: space-between;
-        position: relative;
     }
     
     .nav-brand {
@@ -21,15 +20,12 @@
         align-items: center;
         gap: 10px;
         flex-shrink: 0;
-        z-index: 1002;
     }
     
     .city-logo {
-        height: 45px !important;
+        height: 40px;
         margin-right: 0;
         flex-shrink: 0;
-        display: block !important;
-        visibility: visible !important;
     }
     
     .city-name {
@@ -37,66 +33,27 @@
         white-space: nowrap;
     }
     
-    /* Mobile menu toggle button */
-    .mobile-menu-toggle {
-        display: flex !important;
-        order: 3;
-        z-index: 1002;
-    }
-    
-    /* Mobile dropdown menu */
     .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 250px;
-        max-width: 80vw;
-        background: rgba(10, 30, 61, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 20px 0;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
-        transition: right 0.3s ease;
-        z-index: 1000;
-        border-left: 2px solid var(--gold-primary);
-        max-height: calc(100vh - 70px);
-        overflow-y: auto;
-    }
-    
-    .nav-links.active {
-        right: 0;
+        gap: 12px;
+        font-size: 11px;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        margin-left: auto;
     }
     
     .nav-links li {
-        width: 100%;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    }
-    
-    .nav-links li:last-child {
-        border-bottom: none;
+        flex-shrink: 0;
     }
     
     .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 15px 25px !important;
-        font-size: 14px !important;
-        white-space: normal;
-        border-bottom: none;
-    }
-    
-    .nav-links a::after {
-        display: none;
+        white-space: nowrap;
+        padding: 4px 6px;
+        font-size: 11px;
     }
     
     .nav-cta {
-        margin: 10px 25px !important;
-        width: calc(100% - 50px) !important;
-        text-align: center !important;
-        padding: 12px 20px !important;
-        font-size: 14px !important;
+        padding: 8px 16px !important;
+        font-size: 11px !important;
     }
     
     /* Thumbnail Grid for Presentation Slides */
@@ -295,50 +252,80 @@
 @media (max-width: 480px) {
     /* Container */
     .container {
-        padding: 0 15px;
+        padding: 0 5px;
         max-width: 100%;
     }
     
     /* Navigation - Optimized for mobile */
     .navbar {
-        padding: 8px 0;
+        padding: 6px 0;
         transition: none;
     }
     
     .nav-content {
-        padding: 8px 15px;
+        padding: 6px 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap: 10px;
+        gap: 8px;
     }
     
     .nav-brand {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-shrink: 0;
-        z-index: 1002;
+        min-width: 0;
     }
     
     .city-logo {
-        height: 40px !important;
+        height: 36px;
         width: auto;
         margin-right: 0;
         flex-shrink: 0;
-        display: block !important;
-        visibility: visible !important;
+        transition: none;
     }
     
     .city-name {
-        font-size: 13px !important;
+        font-size: 12px !important;
         white-space: nowrap;
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: visible;
     }
     
-    /* Mobile menu already configured in 768px breakpoint */
     .nav-links {
-        top: 65px;
+        display: flex;
+        gap: 8px;
+        font-size: 9px;
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-left: auto;
+        padding-left: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .nav-links li {
+        flex-shrink: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-links a {
+        letter-spacing: 0px;
+        white-space: nowrap;
+        padding: 4px 6px;
+        display: block;
+        line-height: 1.2;
+        transition: none;
+        font-size: 9px;
+    }
+    
+    .nav-cta {
+        padding: 6px 12px !important;
+        font-size: 9px !important;
+        border-radius: 20px !important;
     }
     
     /* Thumbnail Grid for Presentation Slides */
