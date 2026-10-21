@@ -850,6 +850,7 @@ function setupVideoAutoPlay() {
                 // Play video when it comes into view
                 video.play().catch(err => {
                     // Auto-play prevented by browser
+                    console.log('Autoplay prevented, user interaction required');
                 });
             } else {
                 // Pause video when it leaves view
