@@ -1583,8 +1583,9 @@ body {
     }
     
     .city-logo {
-        height: 50px !important;
+        height: 60px !important;
         width: auto;
+        object-fit: contain;
     }
     
     .city-name {
