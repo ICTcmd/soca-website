@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Test</title>
+</head>
+<body>
+    <h1>Direct Video Test</h1>
+    <video controls width="800">
+        <source src="assets/videos/soca-2026.mp4" type="video/mp4">
+    </video>
+    
+    <p>If video doesn't load, check browser console (F12) for errors.</p>
+    
+    <script>
+        const video = document.querySelector('video');
+        video.addEventListener('error', (e) => {
+            console.error('Video error:', video.error);
+            document.body.innerHTML += '<p style="color:red;">ERROR: ' + video.error.message + '</p>';
+        });
+        
+        video.addEventListener('loadedmetadata', () => {
+            document.body.innerHTML += '<p style="color:green;">✓ Video loaded! Duration: ' + video.duration + ' seconds</p>';
+        });
+    </script>
+</body>
+</html>
