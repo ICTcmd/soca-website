@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self'; connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' blob:; connect-src 'self'">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- SEO and Meta Information -->
     <meta name="description" content="State of the City Address 2026 by Mayor Marina Mayette Javellana-Yao of Bago City, Negros Occidental, Philippines. May Gugma nga Panghimanwa - Building Tomorrow's Bago City, Today.">
@@ -170,7 +171,7 @@
                     <h3 style="text-align: center; color: var(--navy-primary); margin-bottom: 20px; font-size: 24px; font-weight: 600;">Post-SOCA Highlights</h3>
                     <p style="text-align: center; color: #5a6c7d; margin-bottom: 30px; font-size: 16px;">Watch the events and programs following the State of the City Address</p>
                     <div class="video-wrapper">
-                        <video id="socaVideo" controls muted controlsList="nodownload" preload="metadata">
+                        <video id="socaVideo" controls muted preload="metadata" class="w-full">
                             <source src="assets/videos/soca-2026.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
